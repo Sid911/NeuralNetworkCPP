@@ -1,83 +1,94 @@
-#include <stdio.h>
+#include <iostream>
+#include <vector>
+#include "NN/Models/NNSequentialModel.cuh"
 
 // Size of array
-#define N 1048576
-
+#define TRAIN_COUNT 10
+#define N 1035264
 // Kernel
-__global__ void add_vectors(double *a, double *b, double *c)
-{
-    int id = blockDim.x * blockIdx.x + threadIdx.x;
-    if(id < N) c[id] = a[id] + b[id];
+__global__ void add_vectors(const double *a, const double *b, double *c) {
+    uint32_t id = blockDim.x * blockIdx.x + threadIdx.x;
+    if (id < N) c[id] = a[id] + b[id];
 }
+
+float sigmoid_fn(int x) {
+    return 0.5 * (x / (1 + std::abs(x)) + 1);
+}
+
+float loss_function(float expected, float found) {
+    return std::pow(found - expected, 2);
+}
+
+float calculate_loss(std::vector<std::vector<float>> &train_data, float w) {
+    float total_cost = 0;
+    for (auto &i: train_data) {
+        auto x = i[0];
+        float z = x * w;
+        std::cout << "X : " << x << " W : " << w << " Z : " << z << "\n";
+        float cost = loss_function(i[1], z);
+        total_cost += cost;
+    };
+    total_cost /= (float) train_data.size();
+    std::cout << "Total Cost: " << total_cost << "\n";
+}
+
 
 // Main program
-int main()
-{
-    // Number of bytes to allocate for N doubles
-    size_t bytes = N*sizeof(double);
+int main() {
+    auto layers = {
+            NNDenseLayer<float>(1),
+            NNDenseLayer<float>(1),
+            NNDenseLayer<float>(1)
+    };
+    NNSequentialModel model = NNSequentialModel<float>(layers);
+    vector<vector<float>> input = {
+            {0,  0},
+            {1,  2},
+            {2,  4},
+            {3,  6},
+            {4,  8},
+            {5,  10},
+            {6,  12},
+            {7,  14},
+            {8,  16},
+            {9,  18},
+            {10, 20},
+            {11, 22},
+    };
+    model.train(input, 100);
 
-    // Allocate memory for arrays A, B, and C on host
-    double *A = (double*)malloc(bytes);
-    double *B = (double*)malloc(bytes);
-    double *C = (double*)malloc(bytes);
-
-    // Allocate memory for arrays d_A, d_B, and d_C on device
-    double *d_A, *d_B, *d_C;
-    cudaMalloc(&d_A, bytes);
-    cudaMalloc(&d_B, bytes);
-    cudaMalloc(&d_C, bytes);
-
-    // Fill host arrays A and B
-    for(int i=0; i<N; i++)
-    {
-        A[i] = 1.0;
-        B[i] = 2.0;
-    }
-
-    // Copy data from host arrays A and B to device arrays d_A and d_B
-    cudaMemcpy(d_A, A, bytes, cudaMemcpyHostToDevice);
-    cudaMemcpy(d_B, B, bytes, cudaMemcpyHostToDevice);
-
-    // Set execution configuration parameters
-    //      thr_per_blk: number of CUDA threads per grid block
-    //      blk_in_grid: number of blocks in grid
-    int thr_per_blk = 256;
-    int blk_in_grid = ceil( float(N) / thr_per_blk );
-
-    // Launch kernel
-    add_vectors<<< blk_in_grid, thr_per_blk >>>(d_A, d_B, d_C);
-
-    // Copy data from device array d_C to host array C
-    cudaMemcpy(C, d_C, bytes, cudaMemcpyDeviceToHost);
-
-    // Verify results
-    double tolerance = 1.0e-14;
-    for(int i=0; i<N; i++)
-    {
-        if( fabs(C[i] - 3.0) > tolerance)
-        {
-            printf("\nError: value of C[%d] = %d instead of 3.0\n\n", i, C[i]);
-            exit(1);
-        }
-    }
-
-    // Free CPU memory
-    free(A);
-    free(B);
-    free(C);
-
-    // Free GPU memory
-    cudaFree(d_A);
-    cudaFree(d_B);
-    cudaFree(d_C);
-
-    printf("\n---------------------------\n");
-    printf("__SUCCESS__\n");
-    printf("---------------------------\n");
-    printf("N                 = %d\n", N);
-    printf("Threads Per Block = %d\n", thr_per_blk);
-    printf("Blocks In Grid    = %d\n", blk_in_grid);
-    printf("---------------------------\n\n");
-
-    return 0;
+    vector<float> prediction = {50, 20};
+    model.predict(prediction);
 }
+
+//int main()
+//{
+//    std::srand(69); // use current time as seed for random generator
+//    float w = (float) std::rand() / (float) RAND_MAX * 10;
+//    std::cout << "W = " << w << "\n";
+//    std::vector<std::vector<float>> train_data = {
+//            {0, 0},
+//            {1, 3},
+//            {2, 6},
+//            {3, 9},
+//            {4, 12},
+//            {5, 15},
+//            {6, 18},
+//    };
+//
+//    for (int n = 0; n < TRAIN_COUNT; n++)
+//    {
+//        float avg_d = 0;
+//        for (auto &i: train_data) {
+//            auto &x = i[0];
+//            auto &y = i[1];
+//            auto d = (float ) 2.0 *(x - y);
+//            avg_d += d;
+//        }
+//        avg_d /= train_data.size();
+//        w -= avg_d;
+//        float total_loss = calculate_loss(train_data, w);
+//    }
+//
+//    return 0;
+//}

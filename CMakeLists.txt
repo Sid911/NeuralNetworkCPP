@@ -4,10 +4,10 @@ if(NOT DEFINED CMAKE_CUDA_ARCHITECTURES)
     set(CMAKE_CUDA_ARCHITECTURES 75)
 endif()
 
-project(CudaTest CUDA)
+project(NNCPP CUDA)
 set(CMAKE_CUDA_STANDARD 17)
 
-add_executable(CudaTest main.cu)
+add_executable(NNCPP main.cu NN/Models/NNSequentialModel.cu NN/Models/NNSequentialModel.cuh NN/Layers/NNDenseLayer.cu NN/Layers/NNDenseLayer.cuh NN/Layers/layers.cuh)
 
-set_target_properties(CudaTest PROPERTIES
+set_target_properties(NNCPP PROPERTIES
         CUDA_SEPARABLE_COMPILATION ON)
