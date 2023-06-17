@@ -2,6 +2,7 @@
 // Created by sid on 17/6/23.
 //
 
+#include <iostream>
 #include "NNDenseLayer.cuh"
 
 template<typename Tp>
@@ -21,6 +22,8 @@ template<typename Tp>
 void NNDenseLayer<Tp>::allocate_layer() {
     weights.resize(output_size, vector<float>(input_size));
     biases.resize(output_size);
+    values = make_shared<vector<float>>();
+    (*values).resize(output_size);
 
     if (is_random) {
         std::random_device rd;
@@ -32,6 +35,7 @@ void NNDenseLayer<Tp>::allocate_layer() {
                 weights[i][j] = dis(gen);
             }
             biases[i] = dis(gen);
+            (*values)[i] = dis(gen);
         }
     } else {
         for (uint32_t i = 0; i < output_size; ++i) {
@@ -39,7 +43,28 @@ void NNDenseLayer<Tp>::allocate_layer() {
                 weights[i][j] = 0.0;
             }
             biases[i] = 0.0;
+            (*values)[i] = 0.0;
         }
     }
 }
 
+template<typename Tp>
+shared_ptr<vector<Tp>> NNDenseLayer<Tp>::back_propagate(std::shared_ptr<vector<float>> z_vec) {
+    return shared_ptr<vector<Tp>>();
+}
+
+template<typename Tp>
+const vector<Tp> &NNDenseLayer<Tp>::propagate(const vector<Tp> &inp) {
+    // z = L n-1 * weight + bias
+    // a = activation fn (z)
+    for (auto i = 0; i < output_size; i++) {
+        float z = biases[i];
+        for (auto j = 0; j < input_size; j++) {
+            z += inp[j] * weights[i][j];
+        }
+        auto a = sigmoid_fn(z);
+        (*values)[i] = a;
+        std::cout << a << " ";
+    }
+    return values;
+}

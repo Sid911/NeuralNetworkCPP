@@ -23,7 +23,7 @@ public:
     // Member functions
     vector<float> predict(vector<Tp> &inp);
 
-    void train(vector<vector<Tp>> &input, uint32_t steps);
+    void train(vector<Tp> &input,vector<Tp> &labels, uint32_t steps);
 
 private:
     void allocate_layers();

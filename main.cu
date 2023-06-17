@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include "NN/Layers//NNDenseLayer.cuh"
 #include "NN/Models/NNSequentialModel.cuh"
 
 // Size of array
@@ -30,35 +31,24 @@ float calculate_loss(std::vector<std::vector<float>> &train_data, float w) {
     };
     total_cost /= (float) train_data.size();
     std::cout << "Total Cost: " << total_cost << "\n";
+    return total_cost;
 }
 
 
 // Main program
 int main() {
-    auto layers = {
-            NNDenseLayer<float>(1),
-            NNDenseLayer<float>(1),
-            NNDenseLayer<float>(1)
+    vector<NNDenseLayer<float>> layers = {
+            NNDenseLayer<float>(1, true),
+            NNDenseLayer<float>(1, true),
+            NNDenseLayer<float>(1, true)
     };
     NNSequentialModel model = NNSequentialModel<float>(layers);
-    vector<vector<float>> input = {
-            {0,  0},
-            {1,  2},
-            {2,  4},
-            {3,  6},
-            {4,  8},
-            {5,  10},
-            {6,  12},
-            {7,  14},
-            {8,  16},
-            {9,  18},
-            {10, 20},
-            {11, 22},
-    };
-    model.train(input, 100);
+    vector<float> input = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+    vector<float> labels = {0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22};
+    model.train(input, labels, 100);
 
-    vector<float> prediction = {50, 20};
-    model.predict(prediction);
+//    vector<float> prediction = {50, 20};
+//    model.predict(prediction);
 }
 
 //int main()
