@@ -1,7 +1,7 @@
 //
 // Created by sid on 17/6/23.
 //
-
+#pragma once
 #ifndef NNCPP_NNSEQUENTIALMODEL_CUH
 #define NNCPP_NNSEQUENTIALMODEL_CUH
 
@@ -12,24 +12,22 @@
 
 using namespace std;
 
-template<typename Tp>
 class NNSequentialModel {
 public:
     // Member variables
-    const vector<NNDenseLayer<Tp>> layers;
+    vector<NNDenseLayer> layers;
 
-    explicit NNSequentialModel(vector<NNDenseLayer<Tp>> _l);
+    explicit NNSequentialModel(vector<NNDenseLayer> _l);
 
     // Member functions
-    vector<float> predict(vector<Tp> &inp);
+    vector<float> predict(vector<float> &inp);
 
-    void train(vector<Tp> &input,vector<Tp> &labels, uint32_t steps);
+    void train(vector<float> &input,vector<float> &labels, uint32_t steps);
 
 private:
     void allocate_layers();
 
 };
-
 
 enum NNModelError {
     AllocationError,

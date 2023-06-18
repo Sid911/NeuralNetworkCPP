@@ -5,18 +5,15 @@
 #include <iostream>
 #include "NNSequentialModel.cuh"
 
-template<typename Tp>
-NNSequentialModel<Tp>::NNSequentialModel(vector<NNDenseLayer<Tp>> _l): layers(std::move(_l)) {
+NNSequentialModel::NNSequentialModel(vector<NNDenseLayer> _l): layers(std::move(_l)) {
 
 }
 
-template<typename Tp>
-vector<float> NNSequentialModel<Tp>::predict(vector<Tp> &inp_vec) {
+vector<float> NNSequentialModel::predict(vector<float> &inp_vec) {
     return {};
 }
 
-template<typename Tp>
-void NNSequentialModel<Tp>::train( vector<Tp> &input, vector<Tp> &labels, uint32_t steps) {
+void NNSequentialModel::train( vector<float> &input, vector<float> &labels, uint32_t steps) {
     allocate_layers();
     // after allocating layers we train with the input data
     auto res = layers[0].propagate(input);
@@ -27,11 +24,10 @@ void NNSequentialModel<Tp>::train( vector<Tp> &input, vector<Tp> &labels, uint32
 };
 
 
-template<typename Tp>
-void NNSequentialModel<Tp>::allocate_layers() {
+void NNSequentialModel::allocate_layers() {
     std::cout << "Allocating Layers : ";
-    for (const NNDenseLayer<Tp> &layer: layers) {
-        layer.allocate_layer();
+    for (auto i = 0; i < layers.size(); i++) {
+        layers[i].allocate_layer();
         cout << ". ";
     }
     cout << "✅";

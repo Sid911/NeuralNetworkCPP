@@ -7,13 +7,8 @@ endif()
 project(NNCPP CUDA)
 set(CMAKE_CUDA_STANDARD 17)
 
-add_executable(NNCPP
-        NN/Models/NNSequentialModel.cu
-        NN/Models/NNSequentialModel.cuh
-        NN/Layers/NNDenseLayer.cu
-        NN/Layers/NNDenseLayer.cuh
-        main.cu
-        )
+add_executable(NNCPP main.cu NN/Models/NNSequentialModel.cu NN/Models/NNSequentialModel.cuh
+        NN/Layers/NNDenseLayer.cu NN/Layers/NNDenseLayer.cuh)
 
 set_target_properties(NNCPP PROPERTIES
         CUDA_SEPARABLE_COMPILATION ON)
