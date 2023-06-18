@@ -10,6 +10,8 @@
 #include <cstdint>
 #include "../Layers/NNDenseLayer.cuh"
 
+#define assertm(exp, msg) assert(((void)msg, exp))
+
 using namespace std;
 
 class NNSequentialModel {
@@ -22,7 +24,7 @@ public:
     // Member functions
     vector<float> predict(vector<float> &inp);
 
-    void train(vector<float> &input,vector<float> &labels, uint32_t steps);
+    void train(shared_ptr<vector<float>> input,vector<float> &labels, uint32_t steps);
 
 private:
     void allocate_layers();
