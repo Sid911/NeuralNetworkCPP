@@ -1,15 +1,11 @@
-#include <iostream>
 #include <vector>
 #include "NN/Models/NNSequentialModel.cuh"
 
-// Size of array
-#define TRAIN_COUNT 10
-#define N 1035264
 // Kernel
-__global__ void add_vectors(const double *a, const double *b, double *c) {
-    uint32_t id = blockDim.x * blockIdx.x + threadIdx.x;
-    if (id < N) c[id] = a[id] + b[id];
-}
+//__global__ void add_vectors(const double *a, const double *b, double *c) {
+//    uint32_t id = blockDim.x * blockIdx.x + threadIdx.x;
+//    if (id < N) c[id] = a[id] + b[id];
+//}
 
 // Main program
 int main() {
@@ -37,7 +33,7 @@ int main() {
         input.push_back(inputVector);
         labels.push_back(labelVector);
     }
-    model.train(input, labels, 5);
+    model.train(input, labels, 1);
 
 //    vector<float> prediction = {50, 20};
 //    model.predict(prediction);

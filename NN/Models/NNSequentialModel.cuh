@@ -18,7 +18,7 @@ class NNSequentialModel {
 public:
     // Member variables
     vector<NNDenseLayer> layers;
-    bool verbose_logs = false;
+    bool verbose_logs = true;
 
     explicit NNSequentialModel(vector<NNDenseLayer> _l);
 
