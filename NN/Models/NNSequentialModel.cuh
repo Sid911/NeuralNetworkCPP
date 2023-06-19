@@ -18,21 +18,20 @@ class NNSequentialModel {
 public:
     // Member variables
     vector<NNDenseLayer> layers;
+    bool verbose_logs = false;
 
     explicit NNSequentialModel(vector<NNDenseLayer> _l);
 
     // Member functions
     Eigen::VectorXf predict(Eigen::VectorXf &inp);
 
-    void train(shared_ptr<Eigen::VectorXf> input,Eigen::VectorXf &labels, uint32_t steps);
+    void train(const vector<shared_ptr<Eigen::VectorXf>> &input,
+               const vector<shared_ptr<Eigen::VectorXf>>& labels,
+               uint32_t steps);
 
 private:
     void allocate_layers();
 
 };
 
-enum NNModelError {
-    AllocationError,
-
-};
 #endif //NNCPP_NNSEQUENTIALMODEL_CUH
