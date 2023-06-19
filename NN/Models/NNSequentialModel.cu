@@ -10,11 +10,11 @@ NNSequentialModel::NNSequentialModel(vector<NNDenseLayer> _l): layers(std::move(
 
 }
 
-vector<float> NNSequentialModel::predict(vector<float> &inp_vec) {
+Eigen::VectorXf NNSequentialModel::predict(Eigen::VectorXf &inp_vec) {
     return {};
 }
 
-void NNSequentialModel::train( shared_ptr<vector<float>> input, vector<float> &labels, uint32_t steps) {
+void NNSequentialModel::train( shared_ptr<Eigen::VectorXf> input, Eigen::VectorXf &labels, uint32_t steps) {
     allocate_layers();
     // after allocating layers we train with the input data
     cout << "Layer 0" << "\n\t";
@@ -26,7 +26,7 @@ void NNSequentialModel::train( shared_ptr<vector<float>> input, vector<float> &l
         cout << "\n";
     }
     // res is the last layer's result
-    shared_ptr<vector<float>> errors(new vector<float>(res->size()));
+    shared_ptr<Eigen::VectorXf> errors(new Eigen::VectorXf(res->size()));
     // calculate errors
     assertm(labels.size() != (*errors).size(), "labels size != model outputsize");
 

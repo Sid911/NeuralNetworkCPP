@@ -7,7 +7,7 @@
 
 NNDenseLayer::NNDenseLayer(uint32_t _size, bool _is_random): input_size(_size), output_size(_size),
                                                              is_random(_is_random) {
-    values = make_shared<vector<float>>();
+    values = make_shared<Eigen::VectorXf >();
 }
 
 NNDenseLayer::NNDenseLayer(uint32_t _input_size, uint32_t output_size, bool _is_random): input_size(_input_size),
@@ -16,54 +16,41 @@ NNDenseLayer::NNDenseLayer(uint32_t _input_size, uint32_t output_size, bool _is_
 
 }
 
-void NNDenseLayer::allocate_layer(float range_min, float range_max) {
-    weights.resize(output_size, vector<float>(input_size));
-    biases.resize(3);
-    values->resize(output_size);
+void NNDenseLayer::allocate_layer(float min_value, float max_value) {
+    weights.resize(input_size, output_size);
+    biases.resize(output_size);
+    values = std::make_shared<Eigen::VectorXf>(output_size);
 
     if (is_random) {
-        std::random_device rd;
-        std::mt19937 gen(rd());
-        std::uniform_real_distribution<float> dis(range_min, range_max);
+        // Generate random values for weights and biases
+        weights = Eigen::MatrixXf::Random(input_size, output_size);
+        weights = (weights.array() * (max_value - min_value) + (max_value + min_value)) / 2.0;
 
-        for (uint32_t i = 0; i < output_size; ++i) {
-            for (uint32_t j = 0; j < input_size; ++j) {
-                weights[i][j] = dis(gen);
-            }
-            biases[i] = dis(gen);
-            values->at(i) = dis(gen);
-        }
+        biases = Eigen::VectorXf::Random(output_size);
+        biases = (biases.array() * (max_value - min_value) + (max_value + min_value)) / 2.0;
     } else {
-        for (uint32_t i = 0; i < output_size; ++i) {
-            for (uint32_t j = 0; j < input_size; ++j) {
-                weights[i][j] = 0.0;
-            }
-            biases[i] = 0.0;
-            values->at(i) = 0.0;
-        }
+        // Set weights and biases to 0
+        weights.setZero();
+        biases.setZero();
     }
+
+    // Set values to 0
+    values->setZero();
 }
 
-shared_ptr<vector<float>> NNDenseLayer::back_propagate(std::shared_ptr<vector<float>> labels) {
+
+shared_ptr<Eigen::VectorXf > NNDenseLayer::back_propagate(std::shared_ptr<Eigen::VectorXf > labels) {
     // here labels is the truth/values vector from next layer
     // here values is the current values vector is the values in the neuron
     // weights 2d vector is the weights connected to previous node
 
 }
 
-shared_ptr<vector<float>> NNDenseLayer::propagate(shared_ptr<vector<float>> inp) {
+shared_ptr<Eigen::VectorXf > NNDenseLayer::propagate(shared_ptr<Eigen::VectorXf > inp) {
     // z = L n-1 * weight + bias
     // a = activation fn (z)
-    for (auto i = 0; i < output_size; i++) {
-        float z = biases[i];
-        for (auto j = 0; j < input_size; j++) {
-            z += inp->at(j) * weights[i][j];
-        }
-        auto a = relu(z + biases[i]);
-        values->at(i) = a;
-        std::cout << a << " ";
-    }
-    return values;
+
+
 }
 
 

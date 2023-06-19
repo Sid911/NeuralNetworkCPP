@@ -22,9 +22,9 @@ public:
     explicit NNSequentialModel(vector<NNDenseLayer> _l);
 
     // Member functions
-    vector<float> predict(vector<float> &inp);
+    Eigen::VectorXf predict(Eigen::VectorXf &inp);
 
-    void train(shared_ptr<vector<float>> input,vector<float> &labels, uint32_t steps);
+    void train(shared_ptr<Eigen::VectorXf> input,Eigen::VectorXf &labels, uint32_t steps);
 
 private:
     void allocate_layers();

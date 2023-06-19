@@ -12,6 +12,7 @@
 #include <random>
 #include <memory>
 #include <cassert>
+#include "Eigen/Dense"
 
 using namespace std;
 
@@ -27,9 +28,9 @@ public:
 
     void allocate_layer(float = 0.0f, float = 1.0f );
 
-    shared_ptr<vector<float>> propagate(shared_ptr<vector<float>> inp);
+    shared_ptr<Eigen::VectorXf > propagate(shared_ptr<Eigen::VectorXf > inp);
 
-    shared_ptr<vector<float>> back_propagate(std::shared_ptr<vector<float>> z_vec);
+    shared_ptr<Eigen::VectorXf > back_propagate(std::shared_ptr<Eigen::VectorXf > z_vec);
 
 private:
     /*
@@ -37,18 +38,13 @@ private:
      * The column c represents weights per input.
      * matrix being input_size * output_size
      */
-    vector<vector<float>> weights;
-    vector<float> biases;
-    shared_ptr<vector<float>> values;
+    Eigen::MatrixXf weights;
+    Eigen::VectorXf  biases;
+    shared_ptr<Eigen::VectorXf > values;
 
-    shared_ptr<vector<float>> compute_error(shared_ptr<vector<float>> labels){
-        shared_ptr<vector<float>> errors(new vector<float>(output_size));
+    shared_ptr<Eigen::VectorXf > compute_error(shared_ptr<Eigen::VectorXf> labels){
+        shared_ptr<Eigen::VectorXf > errors(new Eigen::VectorXf (output_size));
 
-        assertm(labels->size() == errors->size(), "labels size != model outputsize");
-        for (auto i = 0; i < labels->size(); i++){
-            auto cost = pow(values->at(i) - labels->at(i), 2);
-            errors->push_back(cost);
-        }
         return errors;
     };
 
