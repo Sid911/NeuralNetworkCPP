@@ -57,7 +57,7 @@ shared_ptr<Eigen::VectorXf> NNDenseLayer::back_propagate(
         const std::shared_ptr<Eigen::VectorXf> &pre_delta,
         const std::shared_ptr<Eigen::VectorXf> &next_act) {
     // Compute the delta
-    Eigen::VectorXf delta = *pre_delta * z_vec->unaryExpr(sigmoid_derivative);
+    Eigen::VectorXf delta = *pre_delta * z_vec->unaryExpr(relu_derivative);
 
     if (verbose_log)cout << "Delta : " << delta << "\n";
 
@@ -82,7 +82,7 @@ shared_ptr<Eigen::VectorXf> NNDenseLayer::propagate(const shared_ptr<Eigen::Vect
     if (verbose_log)std::cout << "Weights : \t" << weights << "\nVector z : \t" << z << "\nBiases :" << biases << "\n";
 
     // Apply the activation function to compute the output a
-    std::function<float(float)> activation = [](float x) { return sigmoid_fn(x); };
+    std::function<float(float)> activation = [](float x) { return relu(x); };
     shared_ptr<Eigen::VectorXf> a = make_shared<Eigen::VectorXf>(z.unaryExpr(activation));
     this->activations = a;
 

@@ -23,7 +23,7 @@ public:
 
     float learning_rate = 0.1f;
     bool is_random;
-    bool verbose_log = true;
+    bool verbose_log = false;
 
     Eigen::MatrixXf weights;
     Eigen::VectorXf  biases;

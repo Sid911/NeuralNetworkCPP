@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 #include "NN/Models/NNSequentialModel.cuh"
 
 // Kernel
@@ -33,8 +34,8 @@ int main() {
         input.push_back(inputVector);
         labels.push_back(labelVector);
     }
-    model.train(input, labels, 1);
+    model.train(input, labels, 5);
 
-//    vector<float> prediction = {50, 20};
-//    model.predict(prediction);
+    auto  prediction = make_shared<Eigen::VectorXf>(Eigen::VectorXf{{4.0f}});
+    std::cout << *model.predict(prediction);
 }
