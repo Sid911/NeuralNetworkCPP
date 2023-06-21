@@ -65,7 +65,7 @@ void NNSequentialModel::back(const vector<shared_ptr<Eigen::VectorXf>> &labels, 
                 next_labels,
                 layers[i - 1]->weights
         );
-        cout << "\n";
+        cout << "\n\n";
     }
 
     // Log: Backpropagation complete

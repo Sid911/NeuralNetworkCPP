@@ -15,6 +15,7 @@ int main() {
     vector<shared_ptr<NNLayer>> layers = {
             make_shared<NNInputLayer>(NNInputLayer(1,1, gen, true)),
             make_shared<NNDenseLayer>(NNDenseLayer(1, gen, true)),
+//            make_shared<NNDenseLayer>(NNDenseLayer(1, gen, true)),
     };
     NNSequentialModel model = NNSequentialModel(layers);
 
@@ -29,14 +30,14 @@ int main() {
         (*inputVector)(0) = static_cast<float>(i);
 
         std::shared_ptr<Eigen::VectorXf> labelVector(new Eigen::VectorXf(1));
-        (*labelVector)(0) = static_cast<float>(2 * i);
+        (*labelVector)(0) = static_cast<float>((3 * i));
 
         input.push_back(inputVector);
         labels.push_back(labelVector);
     }
     model.train(input, labels, 5);
 
-    auto  prediction = make_shared<Eigen::VectorXf>(Eigen::VectorXf{{19.0f}});
+    auto  prediction = make_shared<Eigen::VectorXf>(Eigen::VectorXf{{20.0f}});
     auto val = *model.predict(prediction);
     std::cout << "Prediction : x = 19 then y = \n " << val;
 }

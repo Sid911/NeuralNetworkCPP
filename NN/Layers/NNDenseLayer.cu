@@ -56,34 +56,31 @@ shared_ptr<Eigen::VectorXf> NNDenseLayer::back_propagate(
     if (verbose_log)
         cout << "Next W : " << weights << "\nNext biases : " << biases << "\n";
 
-    auto next_delta_without_act_der = delta * weights.transpose();
+    Eigen::VectorXf next_delta_without_act_der = delta * weights.transpose();
+    next_delta_without_act_der = next_delta_without_act_der.cwiseProduct(z_vec->unaryExpr(relu_derivative));
 
     return make_shared<Eigen::VectorXf>(next_delta_without_act_der);
 }
 
 shared_ptr<Eigen::VectorXf> NNDenseLayer::propagate(const shared_ptr<Eigen::VectorXf> &inp) {
-    // z = I_n * weight + bias
-    // a = activation fn (z)
-
     // Compute the linear combination z = I_{n} * weights + biases
-//    Eigen::VectorXf z = (weights * (*inp)) + biases;
     Eigen::VectorXf z = (weights * (*inp));
     if (verbose_log) cout << "Z size : " << z.rows() << " x " << z.cols() << endl;
 
-    if (verbose_log)std::cout << "Weights : \t" << weights << "\nVector z : \t" << z << "\nBiases :" << biases << "\n";
+    if (verbose_log)std::cout << "Weights : \t" << weights << "\nVector z : \t" << z << "\nBiases : " << biases << "\n";
 
     // Apply the activation function to compute the output a
     std::function<float(float)> activation = [](float x) { return relu(x); };
-    shared_ptr<Eigen::VectorXf> a = make_shared<Eigen::VectorXf>(z.unaryExpr(activation));
-    this->activations = a;
+    Eigen::VectorXf a = z.unaryExpr(activation);
+    this->activations = make_shared<Eigen::VectorXf>(a);
 
     // Update the z_vec in the layer
-    *z_vec = z;
+    *z_vec = a;
 
-    cout << "A : " << *a << "\n";
+    cout << "A : " << a << "\n";
 
     // Return the output vector a
-    return a;
+    return make_shared<Eigen::VectorXf>(a);
 }
 
 
