@@ -17,13 +17,13 @@ using namespace std;
 class NNSequentialModel {
 public:
     // Member variables
-    vector<NNDenseLayer> layers;
-    bool verbose_logs = false;
+    vector<shared_ptr<NNLayer>> layers;
+    bool verbose_logs = true;
 
-    explicit NNSequentialModel(vector<NNDenseLayer> _l);
+    explicit NNSequentialModel(vector<shared_ptr<NNLayer>> _l);
 
     // Member functions
-    shared_ptr<Eigen::VectorXf> predict(shared_ptr<Eigen::VectorXf> &inp);
+    [[maybe_unused]] shared_ptr<Eigen::VectorXf> predict(shared_ptr<Eigen::VectorXf> &inp);
 
     void train(const vector<shared_ptr<Eigen::VectorXf>> &input,
                const vector<shared_ptr<Eigen::VectorXf>>& labels,

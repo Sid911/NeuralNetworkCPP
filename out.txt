@@ -1,0 +1,1579 @@
+Allocating Layers : . . ✅
+Layer Weights : 
+	0 x 0
+
+	1 x 1
+
+--------------------------------------------------------
+Allocating layers
+--------------------------------------------------------
+--------------------------------------------------------
+Training Step: 1/5
+--------------------------------------------------------
+Input :1	 Expected out : 2
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 1
+
+Layer 1
+Z size : 1 x 1
+Weights : 	6.9368
+Vector z : 	6.9368
+Biases :-8.50517
+A : 6.9368
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 4.9368
+Layer 1 Errors : 
+Delta : 4.9368
+Prev W : 6.9368
+Prev biases : -8.50517
+Next W : 6.68996
+Next biases : -8.75201
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :2	 Expected out : 4
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 2
+
+Layer 1
+Z size : 1 x 1
+Weights : 	6.68996
+Vector z : 	13.3799
+Biases :-8.75201
+A : 13.3799
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 9.37991
+Layer 1 Errors : 
+Delta : 9.37991
+Prev W : 6.68996
+Prev biases : -8.75201
+Next W : 6.22096
+Next biases : -9.221
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :3	 Expected out : 6
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 3
+
+Layer 1
+Z size : 1 x 1
+Weights : 	6.22096
+Vector z : 	18.6629
+Biases :-9.221
+A : 18.6629
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 12.6629
+Layer 1 Errors : 
+Delta : 12.6629
+Prev W : 6.22096
+Prev biases : -9.221
+Next W : 5.58782
+Next biases : -9.85415
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :4	 Expected out : 8
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 4
+
+Layer 1
+Z size : 1 x 1
+Weights : 	5.58782
+Vector z : 	22.3513
+Biases :-9.85415
+A : 22.3513
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 14.3513
+Layer 1 Errors : 
+Delta : 14.3513
+Prev W : 5.58782
+Prev biases : -9.85415
+Next W : 4.87025
+Next biases : -10.5717
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :5	 Expected out : 10
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 5
+
+Layer 1
+Z size : 1 x 1
+Weights : 	4.87025
+Vector z : 	24.3513
+Biases :-10.5717
+A : 24.3513
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 14.3513
+Layer 1 Errors : 
+Delta : 14.3513
+Prev W : 4.87025
+Prev biases : -10.5717
+Next W : 4.15269
+Next biases : -11.2893
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :6	 Expected out : 12
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 6
+
+Layer 1
+Z size : 1 x 1
+Weights : 	4.15269
+Vector z : 	24.9161
+Biases :-11.2893
+A : 24.9161
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 12.9161
+Layer 1 Errors : 
+Delta : 12.9161
+Prev W : 4.15269
+Prev biases : -11.2893
+Next W : 3.50688
+Next biases : -11.9351
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :7	 Expected out : 14
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 7
+
+Layer 1
+Z size : 1 x 1
+Weights : 	3.50688
+Vector z : 	24.5482
+Biases :-11.9351
+A : 24.5482
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 10.5482
+Layer 1 Errors : 
+Delta : 10.5482
+Prev W : 3.50688
+Prev biases : -11.9351
+Next W : 2.97947
+Next biases : -12.4625
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :8	 Expected out : 16
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 8
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.97947
+Vector z : 	23.8358
+Biases :-12.4625
+A : 23.8358
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 7.83579
+Layer 1 Errors : 
+Delta : 7.83579
+Prev W : 2.97947
+Prev biases : -12.4625
+Next W : 2.58768
+Next biases : -12.8543
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :9	 Expected out : 18
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 9
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.58768
+Vector z : 	23.2892
+Biases :-12.8543
+A : 23.2892
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 5.28916
+Layer 1 Errors : 
+Delta : 5.28916
+Prev W : 2.58768
+Prev biases : -12.8543
+Next W : 2.32323
+Next biases : -13.1187
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :10	 Expected out : 20
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 10
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.32323
+Vector z : 	23.2323
+Biases :-13.1187
+A : 23.2323
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 3.23227
+Layer 1 Errors : 
+Delta : 3.23227
+Prev W : 2.32323
+Prev biases : -13.1187
+Next W : 2.16161
+Next biases : -13.2804
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :11	 Expected out : 22
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 11
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.16161
+Vector z : 	23.7777
+Biases :-13.2804
+A : 23.7777
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 1.77775
+Layer 1 Errors : 
+Delta : 1.77775
+Prev W : 2.16161
+Prev biases : -13.2804
+Next W : 2.07273
+Next biases : -13.3692
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+Training Step: 2/5
+--------------------------------------------------------
+Input :1	 Expected out : 2
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 1
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.07273
+Vector z : 	2.07273
+Biases :-13.3692
+A : 2.07273
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 0.072726
+Layer 1 Errors : 
+Delta : 0.072726
+Prev W : 2.07273
+Prev biases : -13.3692
+Next W : 2.06909
+Next biases : -13.3729
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :2	 Expected out : 4
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 2
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.06909
+Vector z : 	4.13818
+Biases :-13.3729
+A : 4.13818
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 0.138179
+Layer 1 Errors : 
+Delta : 0.138179
+Prev W : 2.06909
+Prev biases : -13.3729
+Next W : 2.06218
+Next biases : -13.3798
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :3	 Expected out : 6
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 3
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.06218
+Vector z : 	6.18654
+Biases :-13.3798
+A : 6.18654
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 0.186543
+Layer 1 Errors : 
+Delta : 0.186543
+Prev W : 2.06218
+Prev biases : -13.3798
+Next W : 2.05285
+Next biases : -13.3891
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :4	 Expected out : 8
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 4
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.05285
+Vector z : 	8.21141
+Biases :-13.3891
+A : 8.21141
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 0.211414
+Layer 1 Errors : 
+Delta : 0.211414
+Prev W : 2.05285
+Prev biases : -13.3891
+Next W : 2.04228
+Next biases : -13.3997
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :5	 Expected out : 10
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 5
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.04228
+Vector z : 	10.2114
+Biases :-13.3997
+A : 10.2114
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 0.211414
+Layer 1 Errors : 
+Delta : 0.211414
+Prev W : 2.04228
+Prev biases : -13.3997
+Next W : 2.03171
+Next biases : -13.4103
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :6	 Expected out : 12
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 6
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.03171
+Vector z : 	12.1903
+Biases :-13.4103
+A : 12.1903
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 0.190272
+Layer 1 Errors : 
+Delta : 0.190272
+Prev W : 2.03171
+Prev biases : -13.4103
+Next W : 2.0222
+Next biases : -13.4198
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :7	 Expected out : 14
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 7
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.0222
+Vector z : 	14.1554
+Biases :-13.4198
+A : 14.1554
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 0.155389
+Layer 1 Errors : 
+Delta : 0.155389
+Prev W : 2.0222
+Prev biases : -13.4198
+Next W : 2.01443
+Next biases : -13.4275
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :8	 Expected out : 16
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 8
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.01443
+Vector z : 	16.1154
+Biases :-13.4275
+A : 16.1154
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 0.115433
+Layer 1 Errors : 
+Delta : 0.115433
+Prev W : 2.01443
+Prev biases : -13.4275
+Next W : 2.00866
+Next biases : -13.4333
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :9	 Expected out : 18
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 9
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.00866
+Vector z : 	18.0779
+Biases :-13.4333
+A : 18.0779
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 0.0779171
+Layer 1 Errors : 
+Delta : 0.0779171
+Prev W : 2.00866
+Prev biases : -13.4333
+Next W : 2.00476
+Next biases : -13.4372
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :10	 Expected out : 20
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 10
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.00476
+Vector z : 	20.0476
+Biases :-13.4372
+A : 20.0476
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 0.047617
+Layer 1 Errors : 
+Delta : 0.047617
+Prev W : 2.00476
+Prev biases : -13.4372
+Next W : 2.00238
+Next biases : -13.4396
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :11	 Expected out : 22
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 11
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.00238
+Vector z : 	22.0262
+Biases :-13.4396
+A : 22.0262
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 0.0261898
+Layer 1 Errors : 
+Delta : 0.0261898
+Prev W : 2.00238
+Prev biases : -13.4396
+Next W : 2.00107
+Next biases : -13.4409
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+Training Step: 3/5
+--------------------------------------------------------
+Input :1	 Expected out : 2
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 1
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.00107
+Vector z : 	2.00107
+Biases :-13.4409
+A : 2.00107
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 0.00107145
+Layer 1 Errors : 
+Delta : 0.00107145
+Prev W : 2.00107
+Prev biases : -13.4409
+Next W : 2.00102
+Next biases : -13.4409
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :2	 Expected out : 4
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 2
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.00102
+Vector z : 	4.00204
+Biases :-13.4409
+A : 4.00204
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 0.00203562
+Layer 1 Errors : 
+Delta : 0.00203562
+Prev W : 2.00102
+Prev biases : -13.4409
+Next W : 2.00092
+Next biases : -13.441
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :3	 Expected out : 6
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 3
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.00092
+Vector z : 	6.00275
+Biases :-13.441
+A : 6.00275
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 0.00274801
+Layer 1 Errors : 
+Delta : 0.00274801
+Prev W : 2.00092
+Prev biases : -13.441
+Next W : 2.00078
+Next biases : -13.4412
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :4	 Expected out : 8
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 4
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.00078
+Vector z : 	8.00311
+Biases :-13.4412
+A : 8.00311
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 0.0031147
+Layer 1 Errors : 
+Delta : 0.0031147
+Prev W : 2.00078
+Prev biases : -13.4412
+Next W : 2.00062
+Next biases : -13.4413
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :5	 Expected out : 10
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 5
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.00062
+Vector z : 	10.0031
+Biases :-13.4413
+A : 10.0031
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 0.0031147
+Layer 1 Errors : 
+Delta : 0.0031147
+Prev W : 2.00062
+Prev biases : -13.4413
+Next W : 2.00047
+Next biases : -13.4415
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :6	 Expected out : 12
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 6
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.00047
+Vector z : 	12.0028
+Biases :-13.4415
+A : 12.0028
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 0.0028038
+Layer 1 Errors : 
+Delta : 0.0028038
+Prev W : 2.00047
+Prev biases : -13.4415
+Next W : 2.00033
+Next biases : -13.4416
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :7	 Expected out : 14
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 7
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.00033
+Vector z : 	14.0023
+Biases :-13.4416
+A : 14.0023
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 0.00228977
+Layer 1 Errors : 
+Delta : 0.00228977
+Prev W : 2.00033
+Prev biases : -13.4416
+Next W : 2.00021
+Next biases : -13.4418
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :8	 Expected out : 16
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 8
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.00021
+Vector z : 	16.0017
+Biases :-13.4418
+A : 16.0017
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 0.00170135
+Layer 1 Errors : 
+Delta : 0.00170135
+Prev W : 2.00021
+Prev biases : -13.4418
+Next W : 2.00013
+Next biases : -13.4418
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :9	 Expected out : 18
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 9
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.00013
+Vector z : 	18.0011
+Biases :-13.4418
+A : 18.0011
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 0.00114822
+Layer 1 Errors : 
+Delta : 0.00114822
+Prev W : 2.00013
+Prev biases : -13.4418
+Next W : 2.00007
+Next biases : -13.4419
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :10	 Expected out : 20
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 10
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.00007
+Vector z : 	20.0007
+Biases :-13.4419
+A : 20.0007
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 0.000701904
+Layer 1 Errors : 
+Delta : 0.000701904
+Prev W : 2.00007
+Prev biases : -13.4419
+Next W : 2.00004
+Next biases : -13.4419
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :11	 Expected out : 22
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 11
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.00004
+Vector z : 	22.0004
+Biases :-13.4419
+A : 22.0004
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 0.000385284
+Layer 1 Errors : 
+Delta : 0.000385284
+Prev W : 2.00004
+Prev biases : -13.4419
+Next W : 2.00002
+Next biases : -13.4419
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+Training Step: 4/5
+--------------------------------------------------------
+Input :1	 Expected out : 2
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 1
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.00002
+Vector z : 	2.00002
+Biases :-13.4419
+A : 2.00002
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 1.57356e-05
+Layer 1 Errors : 
+Delta : 1.57356e-05
+Prev W : 2.00002
+Prev biases : -13.4419
+Next W : 2.00002
+Next biases : -13.4419
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :2	 Expected out : 4
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 2
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.00002
+Vector z : 	4.00003
+Biases :-13.4419
+A : 4.00003
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 3.00407e-05
+Layer 1 Errors : 
+Delta : 3.00407e-05
+Prev W : 2.00002
+Prev biases : -13.4419
+Next W : 2.00001
+Next biases : -13.4419
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :3	 Expected out : 6
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 3
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.00001
+Vector z : 	6.00004
+Biases :-13.4419
+A : 6.00004
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 4.1008e-05
+Layer 1 Errors : 
+Delta : 4.1008e-05
+Prev W : 2.00001
+Prev biases : -13.4419
+Next W : 2.00001
+Next biases : -13.442
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :4	 Expected out : 8
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 4
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.00001
+Vector z : 	8.00005
+Biases :-13.442
+A : 8.00005
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 4.57764e-05
+Layer 1 Errors : 
+Delta : 4.57764e-05
+Prev W : 2.00001
+Prev biases : -13.442
+Next W : 2.00001
+Next biases : -13.442
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :5	 Expected out : 10
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 5
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.00001
+Vector z : 	10
+Biases :-13.442
+A : 10
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 4.57764e-05
+Layer 1 Errors : 
+Delta : 4.57764e-05
+Prev W : 2.00001
+Prev biases : -13.442
+Next W : 2.00001
+Next biases : -13.442
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :6	 Expected out : 12
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 6
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2.00001
+Vector z : 	12
+Biases :-13.442
+A : 12
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 4.00543e-05
+Layer 1 Errors : 
+Delta : 4.00543e-05
+Prev W : 2.00001
+Prev biases : -13.442
+Next W : 2
+Next biases : -13.442
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :7	 Expected out : 14
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 7
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2
+Vector z : 	14
+Biases :-13.442
+A : 14
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 3.33786e-05
+Layer 1 Errors : 
+Delta : 3.33786e-05
+Prev W : 2
+Prev biases : -13.442
+Next W : 2
+Next biases : -13.442
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :8	 Expected out : 16
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 8
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2
+Vector z : 	16
+Biases :-13.442
+A : 16
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 2.47955e-05
+Layer 1 Errors : 
+Delta : 2.47955e-05
+Prev W : 2
+Prev biases : -13.442
+Next W : 2
+Next biases : -13.442
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :9	 Expected out : 18
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 9
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2
+Vector z : 	18
+Biases :-13.442
+A : 18
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 1.71661e-05
+Layer 1 Errors : 
+Delta : 1.71661e-05
+Prev W : 2
+Prev biases : -13.442
+Next W : 2
+Next biases : -13.442
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :10	 Expected out : 20
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 10
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2
+Vector z : 	20
+Biases :-13.442
+A : 20
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 9.53674e-06
+Layer 1 Errors : 
+Delta : 9.53674e-06
+Prev W : 2
+Prev biases : -13.442
+Next W : 2
+Next biases : -13.442
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :11	 Expected out : 22
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 11
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2
+Vector z : 	22
+Biases :-13.442
+A : 22
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 5.72205e-06
+Layer 1 Errors : 
+Delta : 5.72205e-06
+Prev W : 2
+Prev biases : -13.442
+Next W : 2
+Next biases : -13.442
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+Training Step: 5/5
+--------------------------------------------------------
+Input :1	 Expected out : 2
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 1
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2
+Vector z : 	2
+Biases :-13.442
+A : 2
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 2.38419e-07
+Layer 1 Errors : 
+Delta : 2.38419e-07
+Prev W : 2
+Prev biases : -13.442
+Next W : 2
+Next biases : -13.442
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :2	 Expected out : 4
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 2
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2
+Vector z : 	4
+Biases :-13.442
+A : 4
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 4.76837e-07
+Layer 1 Errors : 
+Delta : 4.76837e-07
+Prev W : 2
+Prev biases : -13.442
+Next W : 2
+Next biases : -13.442
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :3	 Expected out : 6
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 3
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2
+Vector z : 	6
+Biases :-13.442
+A : 6
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 9.53674e-07
+Layer 1 Errors : 
+Delta : 9.53674e-07
+Prev W : 2
+Prev biases : -13.442
+Next W : 2
+Next biases : -13.442
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :4	 Expected out : 8
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 4
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2
+Vector z : 	8
+Biases :-13.442
+A : 8
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 9.53674e-07
+Layer 1 Errors : 
+Delta : 9.53674e-07
+Prev W : 2
+Prev biases : -13.442
+Next W : 2
+Next biases : -13.442
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :5	 Expected out : 10
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 5
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2
+Vector z : 	10
+Biases :-13.442
+A : 10
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 9.53674e-07
+Layer 1 Errors : 
+Delta : 9.53674e-07
+Prev W : 2
+Prev biases : -13.442
+Next W : 2
+Next biases : -13.442
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :6	 Expected out : 12
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 6
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2
+Vector z : 	12
+Biases :-13.442
+A : 12
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 1.90735e-06
+Layer 1 Errors : 
+Delta : 1.90735e-06
+Prev W : 2
+Prev biases : -13.442
+Next W : 2
+Next biases : -13.442
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :7	 Expected out : 14
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 7
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2
+Vector z : 	14
+Biases :-13.442
+A : 14
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 1.90735e-06
+Layer 1 Errors : 
+Delta : 1.90735e-06
+Prev W : 2
+Prev biases : -13.442
+Next W : 2
+Next biases : -13.442
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :8	 Expected out : 16
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 8
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2
+Vector z : 	16
+Biases :-13.442
+A : 16
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 1.90735e-06
+Layer 1 Errors : 
+Delta : 1.90735e-06
+Prev W : 2
+Prev biases : -13.442
+Next W : 2
+Next biases : -13.442
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :9	 Expected out : 18
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 9
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2
+Vector z : 	18
+Biases :-13.442
+A : 18
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 1.90735e-06
+Layer 1 Errors : 
+Delta : 1.90735e-06
+Prev W : 2
+Prev biases : -13.442
+Next W : 2
+Next biases : -13.442
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :10	 Expected out : 20
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 10
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2
+Vector z : 	20
+Biases :-13.442
+A : 20
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 1.90735e-06
+Layer 1 Errors : 
+Delta : 1.90735e-06
+Prev W : 2
+Prev biases : -13.442
+Next W : 2
+Next biases : -13.442
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+Input :11	 Expected out : 22
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 11
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2
+Vector z : 	22
+Biases :-13.442
+A : 22
+
+	Propagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Backpropagation start
+Current Error: 1.90735e-06
+Layer 1 Errors : 
+Delta : 1.90735e-06
+Prev W : 2
+Prev biases : -13.442
+Next W : 2
+Next biases : -13.442
+Layer 0 Errors : 
+
+	Backpropagation complete
+--------------------------------------------------------
+--------------------------------------------------------
+	Propagation start
+Layer 0 
+Input Layer vec : 4
+
+Layer 1
+Z size : 1 x 1
+Weights : 	2
+Vector z : 	8
+Biases :-13.442
+A : 8
+
+	Propagation complete
+--------------------------------------------------------
+8

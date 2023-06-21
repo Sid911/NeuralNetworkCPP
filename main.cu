@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include "NN/Models/NNSequentialModel.cuh"
+#include "NN/Layers/NNInputLayer.cuh"
 
 // Kernel
 //__global__ void add_vectors(const double *a, const double *b, double *c) {
@@ -11,10 +12,9 @@
 // Main program
 int main() {
     mt19937 gen(500);
-    vector<NNDenseLayer> layers = {
-            NNDenseLayer(1, gen, true),
-            NNDenseLayer(1, gen, true),
-            NNDenseLayer(1, gen, true)
+    vector<shared_ptr<NNLayer>> layers = {
+            make_shared<NNInputLayer>(NNInputLayer(1,1, gen, true)),
+            make_shared<NNDenseLayer>(NNDenseLayer(1, gen, true)),
     };
     NNSequentialModel model = NNSequentialModel(layers);
 
@@ -24,7 +24,7 @@ int main() {
     std::vector<std::shared_ptr<Eigen::VectorXf>> inputLabels;
 
     // Populate the input and labels vectors
-    for (int i = 0; i <= 11; ++i) {
+    for (int i = 1; i <= 11; ++i) {
         std::shared_ptr<Eigen::VectorXf> inputVector(new Eigen::VectorXf(1));
         (*inputVector)(0) = static_cast<float>(i);
 
@@ -36,6 +36,7 @@ int main() {
     }
     model.train(input, labels, 5);
 
-    auto  prediction = make_shared<Eigen::VectorXf>(Eigen::VectorXf{{4.0f}});
-    std::cout << *model.predict(prediction);
+    auto  prediction = make_shared<Eigen::VectorXf>(Eigen::VectorXf{{19.0f}});
+    auto val = *model.predict(prediction);
+    std::cout << "Prediction : x = 19 then y = \n " << val;
 }

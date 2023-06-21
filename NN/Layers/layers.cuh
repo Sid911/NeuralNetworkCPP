@@ -5,8 +5,10 @@
 #ifndef NNCPP_LAYERS_CUH
 #define NNCPP_LAYERS_CUH
 
-enum {
-    Dense
+enum Layer {
+    Dense,
+    Input,
+    Output
 };
 
 #endif //NNCPP_LAYERS_CUH

@@ -12,35 +12,27 @@
 #include <random>
 #include <memory>
 #include <cassert>
-#include "Eigen/Dense"
+#include "Eigen/Core"
+#include "NNLayer.cuh"
 
 using namespace std;
 
 
-class NNDenseLayer {
+class NNDenseLayer: public NNLayer {
 public:
-    uint32_t input_size, output_size;
+    explicit NNDenseLayer(uint32_t _size, mt19937& _gen, bool _is_random = true):
+    NNLayer(_size, _gen, _is_random){};
 
-    float learning_rate = 0.1f;
-    bool is_random;
-    bool verbose_log = false;
+    NNDenseLayer(uint32_t _input_size, uint32_t output_size, mt19937& _gen, bool _is_random):
+            NNLayer(_input_size, output_size, _gen, _is_random){};
 
-    Eigen::MatrixXf weights;
-    Eigen::VectorXf  biases;
-    shared_ptr<Eigen::VectorXf > z_vec;
-    shared_ptr<Eigen::VectorXf > activations;
+    void allocate_layer(float = 0.0f, float = 1.0f ) override;
 
-    explicit NNDenseLayer(uint32_t _size, mt19937& _gen, bool _is_random = true);
-
-    NNDenseLayer(uint32_t _input_size, uint32_t output_size, mt19937& _gen, bool _is_random);
-
-    void allocate_layer(float = 0.0f, float = 1.0f );
-
-    shared_ptr<Eigen::VectorXf > propagate(const shared_ptr<Eigen::VectorXf >& inp);
+    shared_ptr<Eigen::VectorXf > propagate(const shared_ptr<Eigen::VectorXf >& inp) override;
 
     shared_ptr<Eigen::VectorXf> back_propagate(
             const std::shared_ptr<Eigen::VectorXf> &pre_delta,
-            const std::shared_ptr<Eigen::VectorXf> &next_act) ;
+            const Eigen::MatrixXf &pre_w) override ;
 
     constexpr static const auto sigmoid_derivative = [](float x) {
         float sigmoid = 1.0f / (1.0f + std::exp(-x));
@@ -48,7 +40,6 @@ public:
     };
 
 private:
-    std::mt19937& gen;
 
     static inline float sigmoid_fn(float x) {
         return 0.5 * (x / (1 + std::abs(x)) + 1);
