@@ -7,16 +7,19 @@
 
 shared_ptr<Eigen::VectorXf> NNInputLayer::propagate(const shared_ptr<Eigen::VectorXf> &inp) {
     activations = inp;
-    cout << "Input Layer vec : " << *activations << "\n";
+    if(verbose_log)cout << "Input Layer vec : " << *activations << "\n";
     return activations;
 }
 
-shared_ptr<Eigen::VectorXf> NNInputLayer::back_propagate(const shared_ptr<Eigen::VectorXf> &pre_delta,
-                                                         const Eigen::MatrixXf &pre_w) {
+shared_ptr<Eigen::VectorXf> NNInputLayer::back_propagate(const shared_ptr<Eigen::VectorXf> &target) {
 
     return activations;
 }
 
 void NNInputLayer::allocate_layer(float, float) {
+
+}
+
+void NNInputLayer::update_parameters() {
 
 }

@@ -1,1635 +1,411 @@
-Allocating Layers : . . ✅
+Allocating Layers : . . . ✅
 Layer Weights : 
 	0 x 0
 
-	1 x 1
+	2 x 2
 
+	2 x 1
+
 --------------------------------------------------------
-Allocating layers
+Training Step: 1/100
 --------------------------------------------------------
+Average loss MSE : 2822.62
 --------------------------------------------------------
-Training Step: 1/5
+Training Step: 2/100
 --------------------------------------------------------
-Input :1	 Expected out : 3
+Average loss MSE : 0.97774
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 1
-
-Layer 1
-Z size : 1 x 1
-Weights : 	6.9368
-Vector z : 	6.9368
-Biases : -8.50517
-A : 6.9368
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 3.9368
-Layer 1 Errors : 
-Delta : 3.9368
-Prev W : 6.9368
-Prev biases : -8.50517
-Next W : 6.73996
-Next biases : -8.70201
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 3/100
 --------------------------------------------------------
-Input :2	 Expected out : 6
+Average loss MSE : 0.980934
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 2
-
-Layer 1
-Z size : 1 x 1
-Weights : 	6.73996
-Vector z : 	13.4799
-Biases : -8.70201
-A : 13.4799
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 7.47991
-Layer 1 Errors : 
-Delta : 7.47991
-Prev W : 6.73996
-Prev biases : -8.70201
-Next W : 6.36596
-Next biases : -9.076
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 4/100
 --------------------------------------------------------
-Input :3	 Expected out : 9
+Average loss MSE : 0.981192
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 3
-
-Layer 1
-Z size : 1 x 1
-Weights : 	6.36596
-Vector z : 	19.0979
-Biases : -9.076
-A : 19.0979
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 10.0979
-Layer 1 Errors : 
-Delta : 10.0979
-Prev W : 6.36596
-Prev biases : -9.076
-Next W : 5.86107
-Next biases : -9.5809
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 5/100
 --------------------------------------------------------
-Input :4	 Expected out : 12
+Average loss MSE : 0.981443
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 4
-
-Layer 1
-Z size : 1 x 1
-Weights : 	5.86107
-Vector z : 	23.4443
-Biases : -9.5809
-A : 23.4443
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 11.4443
-Layer 1 Errors : 
-Delta : 11.4443
-Prev W : 5.86107
-Prev biases : -9.5809
-Next W : 5.28885
-Next biases : -10.1531
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 6/100
 --------------------------------------------------------
-Input :5	 Expected out : 15
+Average loss MSE : 0.981699
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 5
-
-Layer 1
-Z size : 1 x 1
-Weights : 	5.28885
-Vector z : 	26.4443
-Biases : -10.1531
-A : 26.4443
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 11.4443
-Layer 1 Errors : 
-Delta : 11.4443
-Prev W : 5.28885
-Prev biases : -10.1531
-Next W : 4.71664
-Next biases : -10.7253
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 7/100
 --------------------------------------------------------
-Input :6	 Expected out : 18
+Average loss MSE : 0.981951
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 6
-
-Layer 1
-Z size : 1 x 1
-Weights : 	4.71664
-Vector z : 	28.2998
-Biases : -10.7253
-A : 28.2998
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 10.2998
-Layer 1 Errors : 
-Delta : 10.2998
-Prev W : 4.71664
-Prev biases : -10.7253
-Next W : 4.20165
-Next biases : -11.2403
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 8/100
 --------------------------------------------------------
-Input :7	 Expected out : 21
+Average loss MSE : 0.982205
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 7
-
-Layer 1
-Z size : 1 x 1
-Weights : 	4.20165
-Vector z : 	29.4115
-Biases : -11.2403
-A : 29.4115
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 8.41153
-Layer 1 Errors : 
-Delta : 8.41153
-Prev W : 4.20165
-Prev biases : -11.2403
-Next W : 3.78107
-Next biases : -11.6609
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 9/100
 --------------------------------------------------------
-Input :8	 Expected out : 24
+Average loss MSE : 0.982456
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 8
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.78107
-Vector z : 	30.2486
-Biases : -11.6609
-A : 30.2486
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 6.24857
-Layer 1 Errors : 
-Delta : 6.24857
-Prev W : 3.78107
-Prev biases : -11.6609
-Next W : 3.46864
-Next biases : -11.9733
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 10/100
 --------------------------------------------------------
-Input :9	 Expected out : 27
+Average loss MSE : 0.982709
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 9
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.46864
-Vector z : 	31.2178
-Biases : -11.9733
-A : 31.2178
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 4.21778
-Layer 1 Errors : 
-Delta : 4.21778
-Prev W : 3.46864
-Prev biases : -11.9733
-Next W : 3.25775
-Next biases : -12.1842
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 11/100
 --------------------------------------------------------
-Input :10	 Expected out : 30
+Average loss MSE : 0.982967
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 10
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.25775
-Vector z : 	32.5775
-Biases : -12.1842
-A : 32.5775
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 2.57753
-Layer 1 Errors : 
-Delta : 2.57753
-Prev W : 3.25775
-Prev biases : -12.1842
-Next W : 3.12888
-Next biases : -12.3131
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 12/100
 --------------------------------------------------------
-Input :11	 Expected out : 33
+Average loss MSE : 0.983223
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 11
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.12888
-Vector z : 	34.4176
-Biases : -12.3131
-A : 34.4176
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 1.41764
-Layer 1 Errors : 
-Delta : 1.41764
-Prev W : 3.12888
-Prev biases : -12.3131
-Next W : 3.05799
-Next biases : -12.384
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 13/100
 --------------------------------------------------------
+Average loss MSE : 0.983466
 --------------------------------------------------------
-Training Step: 2/5
+Training Step: 14/100
 --------------------------------------------------------
-Input :1	 Expected out : 3
+Average loss MSE : 0.983728
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 1
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.05799
-Vector z : 	3.05799
-Biases : -12.384
-A : 3.05799
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0.0579944
-Layer 1 Errors : 
-Delta : 0.0579944
-Prev W : 3.05799
-Prev biases : -12.384
-Next W : 3.05509
-Next biases : -12.3869
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 15/100
 --------------------------------------------------------
-Input :2	 Expected out : 6
+Average loss MSE : 0.983979
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 2
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.05509
-Vector z : 	6.11019
-Biases : -12.3869
-A : 6.11019
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0.110189
-Layer 1 Errors : 
-Delta : 0.110189
-Prev W : 3.05509
-Prev biases : -12.3869
-Next W : 3.04959
-Next biases : -12.3924
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 16/100
 --------------------------------------------------------
-Input :3	 Expected out : 9
+Average loss MSE : 0.98423
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 3
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.04959
-Vector z : 	9.14876
-Biases : -12.3924
-A : 9.14876
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0.148756
-Layer 1 Errors : 
-Delta : 0.148756
-Prev W : 3.04959
-Prev biases : -12.3924
-Next W : 3.04215
-Next biases : -12.3998
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 17/100
 --------------------------------------------------------
-Input :4	 Expected out : 12
+Average loss MSE : 0.984486
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 4
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.04215
-Vector z : 	12.1686
-Biases : -12.3998
-A : 12.1686
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0.168591
-Layer 1 Errors : 
-Delta : 0.168591
-Prev W : 3.04215
-Prev biases : -12.3998
-Next W : 3.03372
-Next biases : -12.4082
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 18/100
 --------------------------------------------------------
-Input :5	 Expected out : 15
+Average loss MSE : 0.984738
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 5
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.03372
-Vector z : 	15.1686
-Biases : -12.4082
-A : 15.1686
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0.168591
-Layer 1 Errors : 
-Delta : 0.168591
-Prev W : 3.03372
-Prev biases : -12.4082
-Next W : 3.02529
-Next biases : -12.4167
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 19/100
 --------------------------------------------------------
-Input :6	 Expected out : 18
+Average loss MSE : 0.984998
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 6
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.02529
-Vector z : 	18.1517
-Biases : -12.4167
-A : 18.1517
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0.151731
-Layer 1 Errors : 
-Delta : 0.151731
-Prev W : 3.02529
-Prev biases : -12.4167
-Next W : 3.0177
-Next biases : -12.4243
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 20/100
 --------------------------------------------------------
-Input :7	 Expected out : 21
+Average loss MSE : 0.985253
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 7
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.0177
-Vector z : 	21.1239
-Biases : -12.4243
-A : 21.1239
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0.123915
-Layer 1 Errors : 
-Delta : 0.123915
-Prev W : 3.0177
-Prev biases : -12.4243
-Next W : 3.01151
-Next biases : -12.4305
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 21/100
 --------------------------------------------------------
-Input :8	 Expected out : 24
+Average loss MSE : 0.985511
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 8
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.01151
-Vector z : 	24.0921
-Biases : -12.4305
-A : 24.0921
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0.0920506
-Layer 1 Errors : 
-Delta : 0.0920506
-Prev W : 3.01151
-Prev biases : -12.4305
-Next W : 3.0069
-Next biases : -12.4351
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 22/100
 --------------------------------------------------------
-Input :9	 Expected out : 27
+Average loss MSE : 0.985766
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 9
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.0069
-Vector z : 	27.0621
-Biases : -12.4351
-A : 27.0621
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0.0621357
-Layer 1 Errors : 
-Delta : 0.0621357
-Prev W : 3.0069
-Prev biases : -12.4351
-Next W : 3.0038
-Next biases : -12.4382
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 23/100
 --------------------------------------------------------
-Input :10	 Expected out : 30
+Average loss MSE : 0.986025
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 10
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.0038
-Vector z : 	30.038
-Biases : -12.4382
-A : 30.038
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0.0379715
-Layer 1 Errors : 
-Delta : 0.0379715
-Prev W : 3.0038
-Prev biases : -12.4382
-Next W : 3.0019
-Next biases : -12.4401
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 24/100
 --------------------------------------------------------
-Input :11	 Expected out : 33
+Average loss MSE : 0.986278
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 11
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.0019
-Vector z : 	33.0209
-Biases : -12.4401
-A : 33.0209
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0.0208855
-Layer 1 Errors : 
-Delta : 0.0208855
-Prev W : 3.0019
-Prev biases : -12.4401
-Next W : 3.00085
-Next biases : -12.4411
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 25/100
 --------------------------------------------------------
+Average loss MSE : 0.986536
 --------------------------------------------------------
-Training Step: 3/5
+Training Step: 26/100
 --------------------------------------------------------
-Input :1	 Expected out : 3
+Average loss MSE : 0.98679
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 1
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.00085
-Vector z : 	3.00085
-Biases : -12.4411
-A : 3.00085
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0.000854254
-Layer 1 Errors : 
-Delta : 0.000854254
-Prev W : 3.00085
-Prev biases : -12.4411
-Next W : 3.00081
-Next biases : -12.4412
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 27/100
 --------------------------------------------------------
-Input :2	 Expected out : 6
+Average loss MSE : 0.987045
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 2
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.00081
-Vector z : 	6.00162
-Biases : -12.4412
-A : 6.00162
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0.00162315
-Layer 1 Errors : 
-Delta : 0.00162315
-Prev W : 3.00081
-Prev biases : -12.4412
-Next W : 3.00073
-Next biases : -12.4412
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 28/100
 --------------------------------------------------------
-Input :3	 Expected out : 9
+Average loss MSE : 0.987304
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 3
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.00073
-Vector z : 	9.00219
-Biases : -12.4412
-A : 9.00219
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0.00219154
-Layer 1 Errors : 
-Delta : 0.00219154
-Prev W : 3.00073
-Prev biases : -12.4412
-Next W : 3.00062
-Next biases : -12.4413
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 29/100
 --------------------------------------------------------
-Input :4	 Expected out : 12
+Average loss MSE : 0.987562
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 4
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.00062
-Vector z : 	12.0025
-Biases : -12.4413
-A : 12.0025
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0.00248337
-Layer 1 Errors : 
-Delta : 0.00248337
-Prev W : 3.00062
-Prev biases : -12.4413
-Next W : 3.0005
-Next biases : -12.4415
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 30/100
 --------------------------------------------------------
-Input :5	 Expected out : 15
+Average loss MSE : 0.987816
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 5
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.0005
-Vector z : 	15.0025
-Biases : -12.4415
-A : 15.0025
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0.00248337
-Layer 1 Errors : 
-Delta : 0.00248337
-Prev W : 3.0005
-Prev biases : -12.4415
-Next W : 3.00037
-Next biases : -12.4416
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 31/100
 --------------------------------------------------------
-Input :6	 Expected out : 18
+Average loss MSE : 0.988073
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 6
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.00037
-Vector z : 	18.0022
-Biases : -12.4416
-A : 18.0022
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0.00223541
-Layer 1 Errors : 
-Delta : 0.00223541
-Prev W : 3.00037
-Prev biases : -12.4416
-Next W : 3.00026
-Next biases : -12.4417
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 32/100
 --------------------------------------------------------
-Input :7	 Expected out : 21
+Average loss MSE : 0.988333
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 7
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.00026
-Vector z : 	21.0018
-Biases : -12.4417
-A : 21.0018
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0.00182343
-Layer 1 Errors : 
-Delta : 0.00182343
-Prev W : 3.00026
-Prev biases : -12.4417
-Next W : 3.00017
-Next biases : -12.4418
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 33/100
 --------------------------------------------------------
-Input :8	 Expected out : 24
+Average loss MSE : 0.988587
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 8
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.00017
-Vector z : 	24.0014
-Biases : -12.4418
-A : 24.0014
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0.00135612
-Layer 1 Errors : 
-Delta : 0.00135612
-Prev W : 3.00017
-Prev biases : -12.4418
-Next W : 3.0001
-Next biases : -12.4419
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 34/100
 --------------------------------------------------------
-Input :9	 Expected out : 27
+Average loss MSE : 0.988847
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 9
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.0001
-Vector z : 	27.0009
-Biases : -12.4419
-A : 27.0009
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0.000915527
-Layer 1 Errors : 
-Delta : 0.000915527
-Prev W : 3.0001
-Prev biases : -12.4419
-Next W : 3.00006
-Next biases : -12.4419
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 35/100
 --------------------------------------------------------
-Input :10	 Expected out : 30
+Average loss MSE : 0.989106
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 10
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.00006
-Vector z : 	30.0006
-Biases : -12.4419
-A : 30.0006
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0.00056076
-Layer 1 Errors : 
-Delta : 0.00056076
-Prev W : 3.00006
-Prev biases : -12.4419
-Next W : 3.00003
-Next biases : -12.4419
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 36/100
 --------------------------------------------------------
-Input :11	 Expected out : 33
+Average loss MSE : 0.989365
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 11
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.00003
-Vector z : 	33.0003
-Biases : -12.4419
-A : 33.0003
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0.000305176
-Layer 1 Errors : 
-Delta : 0.000305176
-Prev W : 3.00003
-Prev biases : -12.4419
-Next W : 3.00001
-Next biases : -12.442
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 37/100
 --------------------------------------------------------
+Average loss MSE : 0.989626
 --------------------------------------------------------
-Training Step: 4/5
+Training Step: 38/100
 --------------------------------------------------------
-Input :1	 Expected out : 3
+Average loss MSE : 0.989881
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 1
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.00001
-Vector z : 	3.00001
-Biases : -12.442
-A : 3.00001
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 1.26362e-05
-Layer 1 Errors : 
-Delta : 1.26362e-05
-Prev W : 3.00001
-Prev biases : -12.442
-Next W : 3.00001
-Next biases : -12.442
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 39/100
 --------------------------------------------------------
-Input :2	 Expected out : 6
+Average loss MSE : 0.990139
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 2
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.00001
-Vector z : 	6.00002
-Biases : -12.442
-A : 6.00002
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 2.38419e-05
-Layer 1 Errors : 
-Delta : 2.38419e-05
-Prev W : 3.00001
-Prev biases : -12.442
-Next W : 3.00001
-Next biases : -12.442
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 40/100
 --------------------------------------------------------
-Input :3	 Expected out : 9
+Average loss MSE : 0.9904
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 3
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.00001
-Vector z : 	9.00003
-Biases : -12.442
-A : 9.00003
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 3.24249e-05
-Layer 1 Errors : 
-Delta : 3.24249e-05
-Prev W : 3.00001
-Prev biases : -12.442
-Next W : 3.00001
-Next biases : -12.442
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 41/100
 --------------------------------------------------------
-Input :4	 Expected out : 12
+Average loss MSE : 0.990661
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 4
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.00001
-Vector z : 	12
-Biases : -12.442
-A : 12
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 3.62396e-05
-Layer 1 Errors : 
-Delta : 3.62396e-05
-Prev W : 3.00001
-Prev biases : -12.442
-Next W : 3.00001
-Next biases : -12.442
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 42/100
 --------------------------------------------------------
-Input :5	 Expected out : 15
+Average loss MSE : 0.990912
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 5
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.00001
-Vector z : 	15
-Biases : -12.442
-A : 15
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 3.62396e-05
-Layer 1 Errors : 
-Delta : 3.62396e-05
-Prev W : 3.00001
-Prev biases : -12.442
-Next W : 3.00001
-Next biases : -12.442
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 43/100
 --------------------------------------------------------
-Input :6	 Expected out : 18
+Average loss MSE : 0.99117
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 6
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3.00001
-Vector z : 	18
-Biases : -12.442
-A : 18
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 3.05176e-05
-Layer 1 Errors : 
-Delta : 3.05176e-05
-Prev W : 3.00001
-Prev biases : -12.442
-Next W : 3
-Next biases : -12.442
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 44/100
 --------------------------------------------------------
-Input :7	 Expected out : 21
+Average loss MSE : 0.991433
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 7
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3
-Vector z : 	21
-Biases : -12.442
-A : 21
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 2.67029e-05
-Layer 1 Errors : 
-Delta : 2.67029e-05
-Prev W : 3
-Prev biases : -12.442
-Next W : 3
-Next biases : -12.442
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 45/100
 --------------------------------------------------------
-Input :8	 Expected out : 24
+Average loss MSE : 0.991688
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 8
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3
-Vector z : 	24
-Biases : -12.442
-A : 24
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 1.90735e-05
-Layer 1 Errors : 
-Delta : 1.90735e-05
-Prev W : 3
-Prev biases : -12.442
-Next W : 3
-Next biases : -12.442
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 46/100
 --------------------------------------------------------
-Input :9	 Expected out : 27
+Average loss MSE : 0.991952
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 9
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3
-Vector z : 	27
-Biases : -12.442
-A : 27
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 1.33514e-05
-Layer 1 Errors : 
-Delta : 1.33514e-05
-Prev W : 3
-Prev biases : -12.442
-Next W : 3
-Next biases : -12.442
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 47/100
 --------------------------------------------------------
-Input :10	 Expected out : 30
+Average loss MSE : 0.992214
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 10
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3
-Vector z : 	30
-Biases : -12.442
-A : 30
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 7.62939e-06
-Layer 1 Errors : 
-Delta : 7.62939e-06
-Prev W : 3
-Prev biases : -12.442
-Next W : 3
-Next biases : -12.442
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 48/100
 --------------------------------------------------------
-Input :11	 Expected out : 33
+Average loss MSE : 0.992474
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 11
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3
-Vector z : 	33
-Biases : -12.442
-A : 33
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 3.8147e-06
-Layer 1 Errors : 
-Delta : 3.8147e-06
-Prev W : 3
-Prev biases : -12.442
-Next W : 3
-Next biases : -12.442
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 49/100
 --------------------------------------------------------
+Average loss MSE : 0.992736
 --------------------------------------------------------
-Training Step: 5/5
+Training Step: 50/100
 --------------------------------------------------------
-Input :1	 Expected out : 3
+Average loss MSE : 0.992994
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 1
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3
-Vector z : 	3
-Biases : -12.442
-A : 3
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0
-Layer 1 Errors : 
-Delta : 0
-Prev W : 3
-Prev biases : -12.442
-Next W : 3
-Next biases : -12.442
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 51/100
 --------------------------------------------------------
-Input :2	 Expected out : 6
+Average loss MSE : 0.993253
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 2
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3
-Vector z : 	6
-Biases : -12.442
-A : 6
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0
-Layer 1 Errors : 
-Delta : 0
-Prev W : 3
-Prev biases : -12.442
-Next W : 3
-Next biases : -12.442
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 52/100
 --------------------------------------------------------
-Input :3	 Expected out : 9
+Average loss MSE : 0.993523
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 3
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3
-Vector z : 	9
-Biases : -12.442
-A : 9
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0
-Layer 1 Errors : 
-Delta : 0
-Prev W : 3
-Prev biases : -12.442
-Next W : 3
-Next biases : -12.442
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 53/100
 --------------------------------------------------------
-Input :4	 Expected out : 12
+Average loss MSE : 0.993778
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 4
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3
-Vector z : 	12
-Biases : -12.442
-A : 12
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0
-Layer 1 Errors : 
-Delta : 0
-Prev W : 3
-Prev biases : -12.442
-Next W : 3
-Next biases : -12.442
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 54/100
 --------------------------------------------------------
-Input :5	 Expected out : 15
+Average loss MSE : 0.994046
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 5
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3
-Vector z : 	15
-Biases : -12.442
-A : 15
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0
-Layer 1 Errors : 
-Delta : 0
-Prev W : 3
-Prev biases : -12.442
-Next W : 3
-Next biases : -12.442
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 55/100
 --------------------------------------------------------
-Input :6	 Expected out : 18
+Average loss MSE : 0.994308
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 6
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3
-Vector z : 	18
-Biases : -12.442
-A : 18
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0
-Layer 1 Errors : 
-Delta : 0
-Prev W : 3
-Prev biases : -12.442
-Next W : 3
-Next biases : -12.442
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 56/100
 --------------------------------------------------------
-Input :7	 Expected out : 21
+Average loss MSE : 0.994564
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 7
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3
-Vector z : 	21
-Biases : -12.442
-A : 21
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0
-Layer 1 Errors : 
-Delta : 0
-Prev W : 3
-Prev biases : -12.442
-Next W : 3
-Next biases : -12.442
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 57/100
 --------------------------------------------------------
-Input :8	 Expected out : 24
+Average loss MSE : 0.994825
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 8
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3
-Vector z : 	24
-Biases : -12.442
-A : 24
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0
-Layer 1 Errors : 
-Delta : 0
-Prev W : 3
-Prev biases : -12.442
-Next W : 3
-Next biases : -12.442
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 58/100
 --------------------------------------------------------
-Input :9	 Expected out : 27
+Average loss MSE : 0.995089
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 9
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3
-Vector z : 	27
-Biases : -12.442
-A : 27
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0
-Layer 1 Errors : 
-Delta : 0
-Prev W : 3
-Prev biases : -12.442
-Next W : 3
-Next biases : -12.442
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 59/100
 --------------------------------------------------------
-Input :10	 Expected out : 30
+Average loss MSE : 0.995349
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 10
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3
-Vector z : 	30
-Biases : -12.442
-A : 30
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0
-Layer 1 Errors : 
-Delta : 0
-Prev W : 3
-Prev biases : -12.442
-Next W : 3
-Next biases : -12.442
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 60/100
 --------------------------------------------------------
-Input :11	 Expected out : 33
+Average loss MSE : 0.995611
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 11
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3
-Vector z : 	33
-Biases : -12.442
-A : 33
-
-	Propagation complete
---------------------------------------------------------
---------------------------------------------------------
-	Backpropagation start
-Current Error: 0
-Layer 1 Errors : 
-Delta : 0
-Prev W : 3
-Prev biases : -12.442
-Next W : 3
-Next biases : -12.442
-Layer 0 Errors : 
-
-
-	Backpropagation complete
+Training Step: 61/100
 --------------------------------------------------------
+Average loss MSE : 0.995882
 --------------------------------------------------------
-	Propagation start
-Layer 0 
-Input Layer vec : 20
-
-Layer 1
-Z size : 1 x 1
-Weights : 	3
-Vector z : 	60
-Biases : -12.442
-A : 60
-
-	Propagation complete
+Training Step: 62/100
+--------------------------------------------------------
+Average loss MSE : 0.996141
+--------------------------------------------------------
+Training Step: 63/100
+--------------------------------------------------------
+Average loss MSE : 0.996414
+--------------------------------------------------------
+Training Step: 64/100
+--------------------------------------------------------
+Average loss MSE : 0.996677
+--------------------------------------------------------
+Training Step: 65/100
+--------------------------------------------------------
+Average loss MSE : 0.99693
+--------------------------------------------------------
+Training Step: 66/100
+--------------------------------------------------------
+Average loss MSE : 0.997193
+--------------------------------------------------------
+Training Step: 67/100
+--------------------------------------------------------
+Average loss MSE : 0.997458
+--------------------------------------------------------
+Training Step: 68/100
+--------------------------------------------------------
+Average loss MSE : 0.997725
+--------------------------------------------------------
+Training Step: 69/100
+--------------------------------------------------------
+Average loss MSE : 0.997988
+--------------------------------------------------------
+Training Step: 70/100
+--------------------------------------------------------
+Average loss MSE : 0.998249
+--------------------------------------------------------
+Training Step: 71/100
+--------------------------------------------------------
+Average loss MSE : 0.99851
+--------------------------------------------------------
+Training Step: 72/100
+--------------------------------------------------------
+Average loss MSE : 0.998778
+--------------------------------------------------------
+Training Step: 73/100
+--------------------------------------------------------
+Average loss MSE : 0.999041
+--------------------------------------------------------
+Training Step: 74/100
+--------------------------------------------------------
+Average loss MSE : 0.99931
+--------------------------------------------------------
+Training Step: 75/100
+--------------------------------------------------------
+Average loss MSE : 0.999574
+--------------------------------------------------------
+Training Step: 76/100
+--------------------------------------------------------
+Average loss MSE : 0.999843
+--------------------------------------------------------
+Training Step: 77/100
+--------------------------------------------------------
+Average loss MSE : 1.0001
+--------------------------------------------------------
+Training Step: 78/100
+--------------------------------------------------------
+Average loss MSE : 1.00036
+--------------------------------------------------------
+Training Step: 79/100
+--------------------------------------------------------
+Average loss MSE : 1.00063
+--------------------------------------------------------
+Training Step: 80/100
+--------------------------------------------------------
+Average loss MSE : 1.00089
+--------------------------------------------------------
+Training Step: 81/100
+--------------------------------------------------------
+Average loss MSE : 1.00117
+--------------------------------------------------------
+Training Step: 82/100
+--------------------------------------------------------
+Average loss MSE : 1.00143
+--------------------------------------------------------
+Training Step: 83/100
+--------------------------------------------------------
+Average loss MSE : 1.0017
+--------------------------------------------------------
+Training Step: 84/100
+--------------------------------------------------------
+Average loss MSE : 1.00196
+--------------------------------------------------------
+Training Step: 85/100
+--------------------------------------------------------
+Average loss MSE : 1.00222
+--------------------------------------------------------
+Training Step: 86/100
+--------------------------------------------------------
+Average loss MSE : 1.00249
+--------------------------------------------------------
+Training Step: 87/100
+--------------------------------------------------------
+Average loss MSE : 1.00276
+--------------------------------------------------------
+Training Step: 88/100
+--------------------------------------------------------
+Average loss MSE : 1.00303
+--------------------------------------------------------
+Training Step: 89/100
+--------------------------------------------------------
+Average loss MSE : 1.0033
+--------------------------------------------------------
+Training Step: 90/100
+--------------------------------------------------------
+Average loss MSE : 1.00356
+--------------------------------------------------------
+Training Step: 91/100
+--------------------------------------------------------
+Average loss MSE : 1.00383
+--------------------------------------------------------
+Training Step: 92/100
+--------------------------------------------------------
+Average loss MSE : 1.0041
+--------------------------------------------------------
+Training Step: 93/100
+--------------------------------------------------------
+Average loss MSE : 1.00436
+--------------------------------------------------------
+Training Step: 94/100
+--------------------------------------------------------
+Average loss MSE : 1.00462
+--------------------------------------------------------
+Training Step: 95/100
+--------------------------------------------------------
+Average loss MSE : 1.0049
+--------------------------------------------------------
+Training Step: 96/100
+--------------------------------------------------------
+Average loss MSE : 1.00517
+--------------------------------------------------------
+Training Step: 97/100
+--------------------------------------------------------
+Average loss MSE : 1.00545
+--------------------------------------------------------
+Training Step: 98/100
+--------------------------------------------------------
+Average loss MSE : 1.00571
+--------------------------------------------------------
+Training Step: 99/100
+--------------------------------------------------------
+Average loss MSE : 1.00598
+--------------------------------------------------------
+Training Step: 100/100
 --------------------------------------------------------
-Prediction : x = 19 then y = 
- 60
+Average loss MSE : 1.00625
+Prediction : x = 20 then y = 
+ 60.7195
+Average Loss : 0.078658

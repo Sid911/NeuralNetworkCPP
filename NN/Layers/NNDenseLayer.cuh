@@ -28,11 +28,12 @@ public:
 
     void allocate_layer(float = 0.0f, float = 1.0f ) override;
 
-    shared_ptr<Eigen::VectorXf > propagate(const shared_ptr<Eigen::VectorXf >& inp) override;
+    shared_ptr<Eigen::VectorXf > propagate(const shared_ptr<Eigen::VectorXf >& pre_act) override;
 
     shared_ptr<Eigen::VectorXf> back_propagate(
-            const std::shared_ptr<Eigen::VectorXf> &pre_delta,
-            const Eigen::MatrixXf &pre_w) override ;
+            const std::shared_ptr<Eigen::VectorXf> &target) override ;
+
+    void update_parameters() override;
 
     constexpr static const auto sigmoid_derivative = [](float x) {
         float sigmoid = 1.0f / (1.0f + std::exp(-x));

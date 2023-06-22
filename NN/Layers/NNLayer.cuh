@@ -5,7 +5,6 @@
 #ifndef NEURALNETWORKCPP_NNLAYER_CUH
 #define NEURALNETWORKCPP_NNLAYER_CUH
 
-
 #include <memory>
 #include <random>
 #include "Eigen/Core"
@@ -16,14 +15,14 @@ class NNLayer {
 public:
     uint32_t input_size, output_size;
 
-    float learning_rate = 0.05f;
+    float learning_rate = 0.00001f;
     bool is_random;
-    bool verbose_log = true;
+    bool verbose_log = false;
 
     Eigen::MatrixXf weights;
-    Eigen::VectorXf biases;
-
-
+    Eigen::VectorXf biases
+    ;
+    shared_ptr<Eigen::VectorXf> delta;
     shared_ptr<Eigen::VectorXf> z_vec;
     shared_ptr<Eigen::VectorXf> activations;
 
@@ -48,8 +47,9 @@ public:
     virtual shared_ptr<Eigen::VectorXf> propagate(const shared_ptr<Eigen::VectorXf> &inp) = 0;
 
     virtual shared_ptr<Eigen::VectorXf> back_propagate(
-            const std::shared_ptr<Eigen::VectorXf> &pre_delta,
-            const Eigen::MatrixXf &pre_w) = 0;
+            const std::shared_ptr<Eigen::VectorXf> &pre_delta) = 0;
+
+    virtual void  update_parameters() = 0;
 
 protected:
     std::mt19937 &gen;

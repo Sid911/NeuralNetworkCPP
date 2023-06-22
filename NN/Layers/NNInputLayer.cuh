@@ -17,9 +17,11 @@ public:
     shared_ptr<Eigen::VectorXf> propagate(const shared_ptr<Eigen::VectorXf> &inp) override;
 
     shared_ptr<Eigen::VectorXf>
-    back_propagate(const shared_ptr<Eigen::VectorXf> &pre_delta, const Eigen::MatrixXf &pre_w) override;
+    back_propagate(const shared_ptr<Eigen::VectorXf> &target) override;
 
     void allocate_layer(float, float) override;
+
+    void update_parameters() override;
 };
 
 

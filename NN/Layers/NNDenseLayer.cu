@@ -37,34 +37,20 @@ void NNDenseLayer::allocate_layer(float min_value, float max_value) {
 
 
 shared_ptr<Eigen::VectorXf> NNDenseLayer::back_propagate(
-        const std::shared_ptr<Eigen::VectorXf> &pre_delta,
-        const Eigen::MatrixXf &pre_w) {
+        const std::shared_ptr<Eigen::VectorXf> &target) {
     // Compute the delta
-    Eigen::VectorXf delta = *pre_delta;
-    delta = delta.cwiseProduct(z_vec->unaryExpr(relu_derivative));
+    delta = target;
+    Eigen::VectorXf z = weights.transpose() * *delta;
+    //delta = delta.cwiseProduct(z_vec->unaryExpr(relu_derivative));
 
     if (verbose_log) cout << "Delta : " << delta << "\n";
-
-    // Update the weights and biases
-    auto del_w = learning_rate * (delta);
-
-    if (verbose_log)
-        cout << "Prev W : " << weights << "\nPrev biases : " << biases << "\n";
-    weights -= del_w;
-    biases -= learning_rate * delta;
-
-    if (verbose_log)
-        cout << "Next W : " << weights << "\nNext biases : " << biases << "\n";
-
-    Eigen::VectorXf next_delta_without_act_der = delta * weights.transpose();
-    next_delta_without_act_der = next_delta_without_act_der.cwiseProduct(z_vec->unaryExpr(relu_derivative));
-
-    return make_shared<Eigen::VectorXf>(next_delta_without_act_der);
+    return make_shared<Eigen::VectorXf>(z.cwiseProduct(activations->unaryExpr(relu_derivative)));
 }
 
-shared_ptr<Eigen::VectorXf> NNDenseLayer::propagate(const shared_ptr<Eigen::VectorXf> &inp) {
+shared_ptr<Eigen::VectorXf> NNDenseLayer::propagate(const shared_ptr<Eigen::VectorXf> &pre_act) {
     // Compute the linear combination z = I_{n} * weights + biases
-    Eigen::VectorXf z = (weights * (*inp));
+    Eigen::VectorXf z = (weights * (*pre_act)) + biases; // returns very different
+//    Eigen::VectorXf z = (weights * (*pre_act)); // Without bias the result is correct
     if (verbose_log) cout << "Z size : " << z.rows() << " x " << z.cols() << endl;
 
     if (verbose_log)std::cout << "Weights : \t" << weights << "\nVector z : \t" << z << "\nBiases : " << biases << "\n";
@@ -75,12 +61,17 @@ shared_ptr<Eigen::VectorXf> NNDenseLayer::propagate(const shared_ptr<Eigen::Vect
     this->activations = make_shared<Eigen::VectorXf>(a);
 
     // Update the z_vec in the layer
-    *z_vec = a;
+    *z_vec = z;
 
-    cout << "A : " << a << "\n";
+    if (verbose_log)cout << "A : " << a << "\n";
 
     // Return the output vector a
-    return make_shared<Eigen::VectorXf>(a);
+    return activations;
+}
+
+void NNDenseLayer::update_parameters() {
+    weights -= learning_rate * *delta * activations->transpose();
+    biases -= learning_rate * *delta;
 }
 
 
