@@ -12,10 +12,10 @@ add_executable(NNCPP main.cu
         NN/Models/NNSequentialModel.cu NN/Models/NNSequentialModel.cuh
         NN/Layers/NNDenseLayer.cu NN/Layers/NNDenseLayer.cuh
         NN/Layers/NNInputLayer.cu NN/Layers/NNInputLayer.cuh NN/Layers/NNLayer.cuh
-        NN/example.cu
+#        NN/example.cu
 
-        external/Eigen/Cholesky
-        external/Eigen/Dense
+#        external/Eigen/Cholesky
+#        external/Eigen/Dense
         external/Eigen/Core
         )
 

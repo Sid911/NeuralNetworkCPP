@@ -5,6 +5,7 @@
 #ifndef NNCPP_NNSEQUENTIALMODEL_CUH
 #define NNCPP_NNSEQUENTIALMODEL_CUH
 #define EIGEN_NO_CUDA
+
 #include <utility>
 #include <vector>
 #include <cstdint>
@@ -23,19 +24,19 @@ public:
     explicit NNSequentialModel(vector<shared_ptr<NNLayer>> _l);
 
     // Member functions
-    [[maybe_unused]] shared_ptr<Eigen::VectorXf> predict(shared_ptr<Eigen::VectorXf> &inp);
+    [[maybe_unused]] shared_ptr<Eigen::MatrixXf> predict(Eigen::MatrixXf &inp);
 
-    void train(const vector<shared_ptr<Eigen::VectorXf>> &input,
-               const vector<shared_ptr<Eigen::VectorXf>>& labels,
+    void train(const Eigen::MatrixXf &input,
+               const Eigen::MatrixXf &labels,
                uint32_t steps);
 
 private:
     void allocate_layers();
 
     shared_ptr<Eigen::Matrix<float, -1, 1>>
-    forward(const shared_ptr<Eigen::VectorXf> &input);
+    forward(const Eigen::VectorXf &input);
 
-    void back(const vector<shared_ptr<Eigen::VectorXf>> &labels, uint32_t inp_index,
+    void back(const Eigen::VectorXf &label,
               const shared_ptr<Eigen::Matrix<float, -1, 1>> &res);
 };
 
