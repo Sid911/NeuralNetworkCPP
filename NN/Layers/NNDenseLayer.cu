@@ -6,9 +6,13 @@
 #include "NNDenseLayer.cuh"
 
 void NNDenseLayer::allocate_layer(float min_value, float max_value) {
+    z_vec = std::make_shared<Eigen::VectorXf>(output_size);
+    z_vec->setZero();
+
+    if (predefined_WnB) return;
+
     weights.resize(output_size, input_size);
     biases.resize(output_size);
-    z_vec = std::make_shared<Eigen::VectorXf>(output_size);
 
     if (is_random) {
         // Generate random z_vec for weights and biases
@@ -26,16 +30,9 @@ void NNDenseLayer::allocate_layer(float min_value, float max_value) {
         }
     } else {
         // Set weights and biases to 0
-//        weights.setZero();
-//        biases.setZero();
-        weights(0,0) = 0.185689;
-        weights(0,1) = 0.618044;
-        biases(0) = 0.7158912399;
+        weights.setZero();
+        biases.setZero();
     }
-
-    // Set z_vec to 0
-    z_vec->setZero();
-
 }
 
 
@@ -46,7 +43,9 @@ shared_ptr<Eigen::VectorXf> NNDenseLayer::back_propagate(
 
     Eigen::VectorXf z = weights.transpose() * *delta;
 
-    if (verbose_log) cout << "Delta : " << *delta << "\n";
+#ifdef NDebug
+     cout << "Delta : " << *delta << "\n";
+#endif
 
     Eigen::VectorXf derivative = activations->unaryExpr(relu_derivative);
     auto next_target = make_shared<Eigen::VectorXf>(z.cwiseProduct(derivative));
@@ -57,9 +56,6 @@ shared_ptr<Eigen::VectorXf> NNDenseLayer::propagate(const shared_ptr<Eigen::Vect
     // Compute the linear combination z = I_{n} * weights + biases
     Eigen::VectorXf z = (weights * (*pre_act)) + biases; // returns very different
 //    Eigen::VectorXf z = (weights * (*pre_act)); // Without bias the result is correct
-    if (verbose_log) cout << "Z size : " << z.rows() << " x " << z.cols() << endl;
-
-    if (verbose_log)std::cout << "Weights : \t" << weights << "\nVector z : \t" << z << "\nBiases : " << biases << "\n";
 
     // Apply the activation function to compute the output a
     std::function<float(float)> activation = [](float x) { return relu(x); };
@@ -69,21 +65,25 @@ shared_ptr<Eigen::VectorXf> NNDenseLayer::propagate(const shared_ptr<Eigen::Vect
     // Update the z_vec in the layer
     *z_vec = z;
 
-    if (verbose_log)cout << "A : " << a << "\n";
+#ifdef NDebug
+    cout << "Z size : " << z.rows() << " x " << z.cols() << endl;
 
+    std::cout << "Weights : \t" << weights << "\nVector z : \t" << z << "\nBiases : " << biases << "\n";
+    cout << "A : " << a << "\n";
+#endif
     // Return the output vector a
     return make_shared<Eigen::VectorXf>(a);
 }
 
 void NNDenseLayer::update_parameters() {
-    if (verbose_log) {
+#ifdef NDebug
         cout << "Prev W : \n" << weights << "\nPrev B : \n" << biases << "\n";
-    }
+#endif
     weights -= learning_rate * *delta * activations->transpose();
     biases -= learning_rate * *delta;
-    if (verbose_log) {
+#ifdef NDebug
         cout << "Next W : \n" << weights << "\nNext B : \n" << biases << "\n";
-    }
+#endif
 }
 
 

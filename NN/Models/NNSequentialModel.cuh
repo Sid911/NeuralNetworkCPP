@@ -4,7 +4,7 @@
 #pragma once
 #ifndef NNCPP_NNSEQUENTIALMODEL_CUH
 #define NNCPP_NNSEQUENTIALMODEL_CUH
-#define EIGEN_NO_CUDA
+
 
 #include <utility>
 #include <vector>
@@ -19,7 +19,6 @@ class NNSequentialModel {
 public:
     // Member variables
     vector<shared_ptr<NNLayer>> layers;
-    bool verbose_log = false;
 
     explicit NNSequentialModel(vector<shared_ptr<NNLayer>> _l);
 

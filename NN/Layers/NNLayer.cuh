@@ -15,9 +15,9 @@ class NNLayer {
 public:
     uint32_t input_size, output_size;
 
-    float learning_rate = 0.001f;
+    float learning_rate = 0.2f;
     bool is_random;
-    bool verbose_log = false;
+    bool predefined_WnB = false;
 
     Eigen::MatrixXf weights;
     Eigen::VectorXf biases
@@ -38,6 +38,20 @@ public:
             output_size(output_size),
             is_random(_is_random),
             gen(_gen) {
+        z_vec = make_shared<Eigen::VectorXf>();
+        activations = make_shared<Eigen::VectorXf>();
+    }
+
+
+    NNLayer(uint32_t _input_size, uint32_t output_size,
+            mt19937 &_gen, bool _is_random, Eigen::MatrixXf& weights, Eigen::VectorXf &biases) :
+            input_size(_input_size),
+            output_size(output_size),
+            is_random(_is_random),
+            gen(_gen),
+            weights(weights),
+            biases(biases),
+            predefined_WnB(true) {
         z_vec = make_shared<Eigen::VectorXf>();
         activations = make_shared<Eigen::VectorXf>();
     }

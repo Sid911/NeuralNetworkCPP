@@ -7,7 +7,9 @@
 
 shared_ptr<Eigen::VectorXf> NNInputLayer::propagate(const shared_ptr<Eigen::VectorXf> &inp) {
     activations = inp;
-    if(verbose_log)cout << "Input Layer vec : " << *activations << "\n";
+#ifdef NDebug
+    cout << "Input Layer vec : " << *activations << "\n";
+#endif
     return activations;
 }
 
