@@ -46,24 +46,25 @@ shared_ptr<Eigen::VectorXf> NNDenseLayer::back_propagate(
 #ifdef NDebug
      cout << "Delta : " << *delta << "\n";
 #endif
-
-    Eigen::VectorXf derivative = activations->unaryExpr(relu_derivative);
+    // find derivative of previous layer's activation results?
+    Eigen::VectorXf derivative = activations->unaryExpr(sigmoid_derivative);
     auto next_target = make_shared<Eigen::VectorXf>(z.cwiseProduct(derivative));
     return next_target;
 }
 
 shared_ptr<Eigen::VectorXf> NNDenseLayer::propagate(const shared_ptr<Eigen::VectorXf> &pre_act) {
     // Compute the linear combination z = I_{n} * weights + biases
-    Eigen::VectorXf z = (weights * (*pre_act)) + biases; // returns very different
-//    Eigen::VectorXf z = (weights * (*pre_act)); // Without bias the result is correct
+    Eigen::VectorXf z = (weights * (*pre_act)) + biases;
 
     // Apply the activation function to compute the output a
-    std::function<float(float)> activation = [](float x) { return relu(x); };
+    std::function<float(float)> activation = [](float x) { return sigmoid_fn(x); };
     Eigen::VectorXf a = z.unaryExpr(activation);
+    // save previous activation in current layer as we need it for updating
+    // weights later on and finding derivative
     this->activations = pre_act;
 
     // Update the z_vec in the layer
-    *z_vec = z;
+    *z_vec = z; // just store it for now although there is no need for it
 
 #ifdef NDebug
     cout << "Z size : " << z.rows() << " x " << z.cols() << endl;

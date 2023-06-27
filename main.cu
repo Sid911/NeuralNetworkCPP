@@ -51,7 +51,7 @@ int main() {
 //    generate_linear(input, labels);
     generate_gate(input, labels);
 
-    model.train(input, labels, 100);
+    model.train(input, labels, 500);
 
     auto val = model.predict(input);
 

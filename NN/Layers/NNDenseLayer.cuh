@@ -45,8 +45,7 @@ public:
 private:
 
     constexpr static const auto sigmoid_derivative = [](float x) {
-        float sigmoid = 1.0f / (1.0f + std::exp(-x));
-        return sigmoid * (1.0f - sigmoid);
+        return x * (1.0f - x);
     };
 
     static inline float sigmoid_fn(float x) {
