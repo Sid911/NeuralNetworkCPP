@@ -38,8 +38,8 @@ int main() {
     });
     vector<shared_ptr<NNLayer>> layers = {
             make_shared<NNInputLayer>(NNInputLayer(2, 2, gen, true)),
-            make_shared<NNDenseLayer>(NNDenseLayer(2, 2, gen, true)),
-            make_shared<NNDenseLayer>(NNDenseLayer(2, 1, gen, true)),
+            make_shared<NNDenseLayer>(NNDenseLayer(2, 3, gen, true)),
+            make_shared<NNDenseLayer>(NNDenseLayer(3, 1, gen, true)),
     };
     NNSequentialModel model = NNSequentialModel(layers);
 
@@ -51,7 +51,7 @@ int main() {
 //    generate_linear(input, labels);
     generate_gate(input, labels);
 
-    model.train(input, labels, 500);
+    model.train(input, labels, 10000);
 
     auto val = model.predict(input);
 

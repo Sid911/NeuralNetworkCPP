@@ -6,6 +6,7 @@
 #define NEURALNETWORKCPP_NNLAYER_CUH
 
 #include <memory>
+#include <cstdint>
 #include <random>
 #include "Eigen/Core"
 
@@ -15,7 +16,7 @@ class NNLayer {
 public:
     uint32_t input_size, output_size;
 
-    float learning_rate = 1.0f;
+    float learning_rate = 0.1f;
     bool is_random;
     bool predefined_WnB = false;
 

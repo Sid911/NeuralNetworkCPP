@@ -49,7 +49,7 @@ private:
     };
 
     static inline float sigmoid_fn(float x) {
-        return 0.5 * (x / (1 + std::abs(x)) + 1);
+        return (1 / (1 + powf(2.7182818284590452353f, -x)));;
     }
 
     static inline float relu(float x) {

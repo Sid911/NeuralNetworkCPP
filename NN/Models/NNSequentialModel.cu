@@ -6,8 +6,9 @@
 #include <utility>
 #include "NNSequentialModel.cuh"
 
-#define ANSI_S "\033[1"
+#define ANSI_S "\033[1;"
 #define ANSI_R "\033[0m"
+
 /*
 F   B   Color
 30	40	Black
@@ -34,7 +35,7 @@ NNSequentialModel::NNSequentialModel(vector<shared_ptr<NNLayer>> _l) : layers(st
 [[maybe_unused]] shared_ptr<Eigen::MatrixXf> NNSequentialModel::predict(Eigen::MatrixXf &inp_vec) {
     shared_ptr<Eigen::MatrixXf> results = make_shared<Eigen::MatrixXf>(inp_vec.rows(), layers.back()->output_size);
     cout << "\n\033[1;30m\033[1;107m ----- Predications ----- \033[0m\n\n";
-    for (auto i = 0; i < inp_vec.rows(); i++){
+    for (auto i = 0; i < inp_vec.rows(); i++) {
         auto res = forward(inp_vec.row(i));
         results->row(i) = *res;
 
@@ -51,9 +52,9 @@ void NNSequentialModel::train(const Eigen::MatrixXf &input,
 
     // Log: Allocating layers
 #ifdef NDebug
-        cout << "--------------------------------------------------------\n"
-             << "Allocating layers\n"
-             << "--------------------------------------------------------\n";
+    cout << "--------------------------------------------------------\n"
+         << "Allocating layers\n"
+         << "--------------------------------------------------------\n";
 #endif
     for (uint32_t step = 0; step < steps; ++step) {
         cout << "\033[1;90mTraining Step: " << (step + 1) << "/" << steps << "\033[0m\n";
@@ -63,8 +64,8 @@ void NNSequentialModel::train(const Eigen::MatrixXf &input,
         for (uint32_t inp_index = 0; inp_index < input.rows(); inp_index++) {
             // Log: Training step
 #ifdef NDebug
-                cout << "Input :" << input.row(inp_index) << "\t Expected out : " << labels.row(inp_index);
-                cout << "\n";
+            cout << "Input :" << input.row(inp_index) << "\t Expected out : " << labels.row(inp_index);
+            cout << "\n";
 #endif
             shared_ptr<Eigen::Matrix<float, -1, 1>> res = forward(input.row(inp_index));
             total_loss += (*res - labels.row(inp_index)).squaredNorm();
@@ -81,8 +82,8 @@ void NNSequentialModel::back(const Eigen::VectorXf &label,
     // Log: Backpropagation start
 
 #ifdef NDebug
-        cout << "--------------------------------------------------------\n"
-             << "\tBackpropagation start\n";
+    cout << "--------------------------------------------------------\n"
+         << "\tBackpropagation start\n";
 #endif
     // calculate first error and delta
     shared_ptr<Eigen::VectorXf> error = make_shared<Eigen::VectorXf>(*res - label);
@@ -108,17 +109,17 @@ void NNSequentialModel::back(const Eigen::VectorXf &label,
     }
     // Log: Backpropagation complete
 #ifdef NDebug
-        cout << "\tBackpropagation complete\n"
-             << "--------------------------------------------------------\n";
+    cout << "\tBackpropagation complete\n"
+         << "--------------------------------------------------------\n";
 #endif
 }
 
 shared_ptr<Eigen::VectorXf>
 NNSequentialModel::forward(const Eigen::VectorXf &input) {// Forward propagation
 #ifdef NDebug
-        cout << "--------------------------------------------------------\n"
-             << "\tPropagation start\n";
-    cout << "Layer 0 \n";
+    cout << "--------------------------------------------------------\n"
+         << "\tPropagation start\n";
+cout << "Layer 0 \n";
 #endif
     auto prev_act = make_shared<Eigen::VectorXf>(input);
     for (auto i = 0; i < layers.size(); i++) {
@@ -132,8 +133,8 @@ NNSequentialModel::forward(const Eigen::VectorXf &input) {// Forward propagation
     }
 
 #ifdef NDebug
-        cout << "\tPropagation complete\n"
-             << "--------------------------------------------------------\n";
+    cout << "\tPropagation complete\n"
+         << "--------------------------------------------------------\n";
 #endif
     return prev_act;
 }
@@ -148,6 +149,6 @@ void NNSequentialModel::allocate_layers() {
     cout << "✅\n" << "Layer Weights : \n";
     for (auto &layer: layers) {
         cout << "\t" << layer->weights.rows() << " x " << layer->weights.cols() << "\n";
-        cout << layer-> weights << "\n";
+        cout << layer->weights << "\n";
     }
 }

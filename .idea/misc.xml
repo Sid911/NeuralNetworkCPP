@@ -8,5 +8,8 @@
     <libraryRoots>
       <file path="$PROJECT_DIR$/external/Eigen" />
     </libraryRoots>
+    <excludeRoots>
+      <file path="$PROJECT_DIR$/.cache" />
+    </excludeRoots>
   </component>
 </project>
