@@ -57,7 +57,7 @@ void NNSequentialModel::train(const Eigen::MatrixXf &input,
          << "--------------------------------------------------------\n";
 #endif
     for (uint32_t step = 0; step < steps; ++step) {
-        cout << "\033[1;90mTraining Step: " << (step + 1) << "/" << steps << "\033[0m\n";
+//        cout << "\033[1;90mTraining Step: " << (step + 1) << "/" << steps << "\033[0m\n";
 
         double total_loss = 0.0;
 
@@ -72,7 +72,7 @@ void NNSequentialModel::train(const Eigen::MatrixXf &input,
             back(labels.row(inp_index), res);
         }
 
-        cout << "Average loss MSE :\033[1;40m " << total_loss / labels.size() << " \033[0m\n";
+//        cout << "Average loss MSE :\033[1;40m " << total_loss / labels.size() << " \033[0m\n";
     }
 }
 

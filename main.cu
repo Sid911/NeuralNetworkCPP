@@ -1,14 +1,10 @@
-#define Ndebug
+//#define NNdebug
 
 #include <vector>
 #include <iostream>
 #include "NN/Models/NNSequentialModel.cuh"
 #include "NN/Layers/NNInputLayer.cuh"
-// Kernel
-//__global__ void add_vectors(const double *a, const double *b, double *c) {
-//    uint32_t id = blockDim.x * blockIdx.x + threadIdx.x;
-//    if (id < N) c[id] = a[id] + b[id];
-//}
+#include "DataLoaders/ImageData.h"
 
 #define N 4
 
@@ -18,6 +14,15 @@ void generate_linear(MatrixXf &input, MatrixXf &labels) noexcept;
 void generate_gate(MatrixXf &input, MatrixXf &labels) noexcept;
 
 // Main program
+//int main(){
+//    auto result = load_image_data_dir("./data/mnist_png");
+//    std::cout << result.trainingData->size() << " "<< result.testData->size() << "\n";
+//
+//    for (auto &x : *result.trainingData){
+//        cout << x << "\n\n\n";
+//    };
+//}
+
 int main() {
     mt19937 gen(time(nullptr));
     MatrixXf layer1m({
@@ -51,12 +56,12 @@ int main() {
 //    generate_linear(input, labels);
     generate_gate(input, labels);
 
-    model.train(input, labels, 10000);
+    model.train(input, labels, 5000);
 
     auto val = model.predict(input);
 
-
-}
+    return 0;
+};
 
 void generate_linear(MatrixXf &input, MatrixXf &labels) noexcept {
     for (int i = 0; i < N; i++) {
