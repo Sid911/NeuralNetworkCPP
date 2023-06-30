@@ -2,7 +2,6 @@
 // Created by sid on 17/6/23.
 //
 
-#include <iostream>
 #include "NNDenseLayer.cuh"
 
 void NNDenseLayer::allocate_layer(float min_value, float max_value) {
@@ -43,9 +42,8 @@ shared_ptr<Eigen::VectorXf> NNDenseLayer::back_propagate(
 
     Eigen::VectorXf z = weights.transpose() * *delta;
 
-#ifdef NDebug
-     cout << "Delta : " << *delta << "\n";
-#endif
+    logger << "Delta : " << *delta << "\n";
+
     // find derivative of previous layer's activation results?
     Eigen::VectorXf derivative = activations->unaryExpr(tanh_derivative);
     auto next_target = make_shared<Eigen::VectorXf>(z.cwiseProduct(derivative));
@@ -66,25 +64,25 @@ shared_ptr<Eigen::VectorXf> NNDenseLayer::propagate(const shared_ptr<Eigen::Vect
     // Update the z_vec in the layer
     *z_vec = z; // just store it for now although there is no need for it
 
-#ifdef NDebug
-    cout << "Z size : " << z.rows() << " x " << z.cols() << endl;
 
-    std::cout << "Weights : \t" << weights << "\nVector z : \t" << z << "\nBiases : " << biases << "\n";
-    cout << "A : " << a << "\n";
-#endif
+    logger << "Z size : " << z.rows() << " x " << z.cols() << endl;
+
+    logger << "Weights : \t" << weights << "\nVector z : \t" << z << "\nBiases : " << biases << "\n";
+    logger << "A : " << a << "\n";
+
     // Return the output vector a
     return make_shared<Eigen::VectorXf>(a);
 }
 
 void NNDenseLayer::update_parameters() {
-#ifdef NDebug
-        cout << "Prev W : \n" << weights << "\nPrev B : \n" << biases << "\n";
-#endif
+
+    logger << "Prev W : \n" << weights << "\nPrev B : \n" << biases << "\n";
+
     weights -= learning_rate * *delta * activations->transpose();
     biases -= learning_rate * *delta;
-#ifdef NDebug
-        cout << "Next W : \n" << weights << "\nNext B : \n" << biases << "\n";
-#endif
+
+    logger << "Next W : \n" << weights << "\nNext B : \n" << biases << "\n";
+
 }
 
 

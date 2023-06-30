@@ -1,7 +1,7 @@
 //#define NNdebug
 
-#include <vector>
-#include <iostream>
+#include "pch.cuh"
+#include "NN/Utils/Logger.cuh"
 #include "NN/Models/NNSequentialModel.cuh"
 #include "NN/Layers/NNInputLayer.cuh"
 #include "DataLoaders/ImageData.h"
@@ -25,22 +25,7 @@ void generate_gate(MatrixXf &input, MatrixXf &labels) noexcept;
 
 int main() {
     mt19937 gen(time(nullptr));
-    MatrixXf layer1m({
-        {0.185689, 0.688531 },
-        {0.715891, 0.694503 }
-    });
 
-    MatrixXf layer2m({
-        {-0.404931, -0.886574}
-    });
-
-    VectorXf layer1b({
-        { 0.247127, -0.231237}
-    });
-
-    VectorXf layer2b({
-        { -0.454687 }
-    });
     vector<shared_ptr<NNLayer>> layers = {
             make_shared<NNInputLayer>(NNInputLayer(2, 2, gen, true)),
             make_shared<NNDenseLayer>(NNDenseLayer(2, 3, gen, true)),
@@ -51,9 +36,9 @@ int main() {
     MatrixXf input(N, 2);
     MatrixXf labels(N, 1);
 
-    // Populate the input and labels vectors
+    // Populate the input and trainingLabels vectors
 
-//    generate_linear(input, labels);
+//    generate_linear(input, trainingLabels);
     generate_gate(input, labels);
 
     model.train(input, labels, 5000);

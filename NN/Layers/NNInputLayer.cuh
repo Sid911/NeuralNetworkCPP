@@ -2,12 +2,12 @@
 // Created by sid on 20/6/23.
 //
 
-#ifndef NNCPP_NNINPUTLAYER_CUH
-#define NNCPP_NNINPUTLAYER_CUH
+#ifndef NNCPP_NNINPUT_LAYER_CUH
+#define NNCPP_NNINPUT_LAYER_CUH
 
 
+#include "../../pch.cuh"
 #include "NNLayer.cuh"
-#define assertm(exp, msg) assert(((void)msg, exp))
 
 class NNInputLayer: public NNLayer{
 public:
@@ -25,4 +25,4 @@ public:
 };
 
 
-#endif //NNCPP_NNINPUTLAYER_CUH
+#endif //NNCPP_NNINPUT_LAYER_CUH

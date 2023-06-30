@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.26)
 if(NOT DEFINED CMAKE_CUDA_ARCHITECTURES)
     set(CMAKE_CUDA_ARCHITECTURES 75)
 endif()
+
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif()
@@ -27,9 +28,12 @@ add_executable(NNCPP main.cu
         #        external/Eigen/Cholesky
         #        external/Eigen/Dense
         external/Eigen/Core
-#        external/unsupported/Eigen/CXX11/Tensor
+        NN/Utils/Logger.cuh
+        #        external/unsupported/Eigen/CXX11/Tensor
 )
 
+#set_target_properties(NNCPP PROPERTIES LINKER_LANGUAGE CXX)
+target_precompile_headers(NNCPP PUBLIC pch.cuh)
 # copy data directory
 
 add_custom_target(copy_resources ALL

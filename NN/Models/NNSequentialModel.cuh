@@ -10,8 +10,7 @@
 #include <vector>
 #include <cstdint>
 #include "../Layers/NNDenseLayer.cuh"
-
-#define assertm(exp, msg) assert(((void)msg, exp))
+#include "../Utils/Logger.cuh"
 
 using namespace std;
 
@@ -19,6 +18,7 @@ class NNSequentialModel {
 public:
     // Member variables
     vector<shared_ptr<NNLayer>> layers;
+    NN::Logger logger;
 
     explicit NNSequentialModel(vector<shared_ptr<NNLayer>> _l);
 

@@ -7,9 +7,11 @@
     </sourceRoots>
     <libraryRoots>
       <file path="$PROJECT_DIR$/external/Eigen" />
+      <file path="$PROJECT_DIR$/external/unsupported" />
     </libraryRoots>
     <excludeRoots>
       <file path="$PROJECT_DIR$/.cache" />
+      <file path="$PROJECT_DIR$/external" />
     </excludeRoots>
   </component>
 </project>

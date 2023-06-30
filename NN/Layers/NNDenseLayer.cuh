@@ -5,17 +5,11 @@
 #ifndef NNCPP_NNDENSELAYER_CUH
 #define NNCPP_NNDENSELAYER_CUH
 
-#define assertm(exp, msg) assert(((void)msg, exp))
 
-#include <cstdint>
-#include <vector>
-#include <random>
-#include <memory>
-#include <cassert>
-#include "Eigen/Core"
+#include "../../pch.cuh"
 #include "NNLayer.cuh"
 
-#define NDebugs
+//#define NNDebug
 using namespace std;
 
 
@@ -29,7 +23,7 @@ public:
 
 
     NNDenseLayer(uint32_t _input_size, uint32_t output_size, mt19937 &_gen, bool _is_random,
-                 Eigen::MatrixXf& weights, Eigen::VectorXf& biases) :
+                 Eigen::MatrixXf &weights, Eigen::VectorXf &biases) :
             NNLayer(_input_size, output_size, _gen, _is_random, weights, biases) {};
 
     void allocate_layer(float = -1.0f, float = 1.0f) override;

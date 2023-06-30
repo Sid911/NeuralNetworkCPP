@@ -28,8 +28,7 @@ F   B   Color
 96	106	Bright Cyan
 97	107	Bright White
  */
-NNSequentialModel::NNSequentialModel(vector<shared_ptr<NNLayer>> _l) : layers(std::move(_l)) {
-
+NNSequentialModel::NNSequentialModel(vector<shared_ptr<NNLayer>> _l) : layers(std::move(_l)), logger(false) {
 }
 
 [[maybe_unused]] shared_ptr<Eigen::MatrixXf> NNSequentialModel::predict(Eigen::MatrixXf &inp_vec) {
@@ -51,28 +50,28 @@ void NNSequentialModel::train(const Eigen::MatrixXf &input,
     allocate_layers();
 
     // Log: Allocating layers
-#ifdef NDebug
+
     cout << "--------------------------------------------------------\n"
          << "Allocating layers\n"
          << "--------------------------------------------------------\n";
-#endif
+
     for (uint32_t step = 0; step < steps; ++step) {
-//        cout << "\033[1;90mTraining Step: " << (step + 1) << "/" << steps << "\033[0m\n";
+        cout << "\033[1;90mTraining Step: " << (step + 1) << "/" << steps << "\033[0m\n";
 
         double total_loss = 0.0;
 
         for (uint32_t inp_index = 0; inp_index < input.rows(); inp_index++) {
             // Log: Training step
-#ifdef NDebug
-            cout << "Input :" << input.row(inp_index) << "\t Expected out : " << labels.row(inp_index);
-            cout << "\n";
-#endif
+
+            logger << "Input :" << input.row(inp_index) << "\t Expected out : " << labels.row(inp_index);
+            logger << "\n";
+
             shared_ptr<Eigen::Matrix<float, -1, 1>> res = forward(input.row(inp_index));
             total_loss += (*res - labels.row(inp_index)).squaredNorm();
             back(labels.row(inp_index), res);
         }
 
-//        cout << "Average loss MSE :\033[1;40m " << total_loss / labels.size() << " \033[0m\n";
+        cout << "Average loss MSE :\033[1;40m " << total_loss / labels.size() << " \033[0m\n";
     }
 }
 
@@ -81,61 +80,53 @@ void NNSequentialModel::back(const Eigen::VectorXf &label,
     // res is the last layer's result
     // Log: Backpropagation start
 
-#ifdef NDebug
-    cout << "--------------------------------------------------------\n"
+    logger << "--------------------------------------------------------\n"
          << "\tBackpropagation start\n";
-#endif
+
     // calculate first error and delta
     shared_ptr<Eigen::VectorXf> error = make_shared<Eigen::VectorXf>(*res - label);
 
-#ifdef NDebug
-    cout << "Layer " << layers.size() - 1 << " Errors : \n";
-#endif
+    logger << "Layer " << layers.size() - 1 << " Errors : \n";
+
     auto next_labels = layers.back()->back_propagate(error);
-
     for (long long i = layers.size() - 2; i > 0; i--) {
-#ifdef NDebug
-        cout << "Layer " << i << " Errors : \n";
-#endif
+        logger << "Layer " << i << " Errors : \n";
         next_labels = layers.at(i)->back_propagate(next_labels);
-
-#ifdef NDebug
-        cout << "\n\n";
-#endif
+        logger << "\n\n";
     }
 
     for (auto i = 1; i < layers.size(); i++) {
         layers[i]->update_parameters();
     }
     // Log: Backpropagation complete
-#ifdef NDebug
-    cout << "\tBackpropagation complete\n"
+
+    logger << "\tBackpropagation complete\n"
          << "--------------------------------------------------------\n";
-#endif
+
 }
 
 shared_ptr<Eigen::VectorXf>
 NNSequentialModel::forward(const Eigen::VectorXf &input) {// Forward propagation
-#ifdef NDebug
-    cout << "--------------------------------------------------------\n"
+
+    logger << "--------------------------------------------------------\n"
          << "\tPropagation start\n";
-cout << "Layer 0 \n";
-#endif
+    logger << "Layer 0 \n";
+
     auto prev_act = make_shared<Eigen::VectorXf>(input);
     for (auto i = 0; i < layers.size(); i++) {
-#ifdef NDebug
-        cout << "Layer " << i << "\n";
-#endif
+
+        logger << "Layer " << i << "\n";
+
         prev_act = layers[i]->propagate(prev_act);
-#ifdef NDebug
-        cout << "\n";
-#endif
+
+        logger << "\n";
+
     }
 
-#ifdef NDebug
-    cout << "\tPropagation complete\n"
+
+    logger << "\tPropagation complete\n"
          << "--------------------------------------------------------\n";
-#endif
+
     return prev_act;
 }
 
