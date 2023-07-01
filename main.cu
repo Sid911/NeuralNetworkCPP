@@ -13,15 +13,6 @@ using namespace Eigen;
 void generate_linear(MatrixXf &input, MatrixXf &labels) noexcept;
 void generate_gate(MatrixXf &input, MatrixXf &labels) noexcept;
 
-// Main program
-//int main(){
-//    auto result = load_image_data_dir("./data/mnist_png");
-//    std::cout << result.trainingData->size() << " "<< result.testData->size() << "\n";
-//
-//    for (auto &x : *result.trainingData){
-//        cout << x << "\n\n\n";
-//    };
-//}
 
 int main() {
     mt19937 gen(time(nullptr));

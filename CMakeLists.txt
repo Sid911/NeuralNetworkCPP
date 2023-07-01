@@ -18,7 +18,8 @@ set(CMAKE_CUDA_FLAGS "-O3 --expt-relaxed-constexpr  --diag-suppress 20011 --diag
 
 
 add_subdirectory(DataLoaders)
-add_executable(NNCPP main.cu
+add_executable(NNCPP
+#        main.cu
         NN/Models/NNSequentialModel.cu NN/Models/NNSequentialModel.cuh
         NN/Layers/NNDenseLayer.cu NN/Layers/NNDenseLayer.cuh
         NN/Layers/NNInputLayer.cu NN/Layers/NNInputLayer.cuh NN/Layers/NNLayer.cuh
@@ -29,6 +30,7 @@ add_executable(NNCPP main.cu
         #        external/Eigen/Dense
         external/Eigen/Core
         NN/Utils/Logger.cuh
+        mnist_digits.cu
         #        external/unsupported/Eigen/CXX11/Tensor
 )
 

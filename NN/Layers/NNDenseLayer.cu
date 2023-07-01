@@ -76,12 +76,12 @@ shared_ptr<Eigen::VectorXf> NNDenseLayer::propagate(const shared_ptr<Eigen::Vect
 
 void NNDenseLayer::update_parameters() {
 
-    logger << "Prev W : \n" << weights << "\nPrev B : \n" << biases << "\n";
+//    logger << "Prev W : \n" << weights << "\nPrev B : \n" << biases << "\n";
 
     weights -= learning_rate * *delta * activations->transpose();
     biases -= learning_rate * *delta;
 
-    logger << "Next W : \n" << weights << "\nNext B : \n" << biases << "\n";
+//    logger << "Next W : \n" << weights << "\nNext B : \n" << biases << "\n";
 
 }
 

@@ -25,6 +25,9 @@ public:
     // Member functions
     [[maybe_unused]] shared_ptr<Eigen::MatrixXf> predict(Eigen::MatrixXf &inp);
 
+    void test(const Eigen::MatrixXf &input,
+              const Eigen::MatrixXf &output);
+
     void train(const Eigen::MatrixXf &input,
                const Eigen::MatrixXf &labels,
                uint32_t steps);

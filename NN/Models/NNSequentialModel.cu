@@ -33,15 +33,29 @@ NNSequentialModel::NNSequentialModel(vector<shared_ptr<NNLayer>> _l) : layers(st
 
 [[maybe_unused]] shared_ptr<Eigen::MatrixXf> NNSequentialModel::predict(Eigen::MatrixXf &inp_vec) {
     shared_ptr<Eigen::MatrixXf> results = make_shared<Eigen::MatrixXf>(inp_vec.rows(), layers.back()->output_size);
-    cout << "\n\033[1;30m\033[1;107m ----- Predications ----- \033[0m\n\n";
+    cout << "\n\033[1;30m\033[1;107m ----- Predictions ----- \033[0m\n\n";
     for (auto i = 0; i < inp_vec.rows(); i++) {
         auto res = forward(inp_vec.row(i));
         results->row(i) = *res;
 
-        std::cout << "Prediction :\033[1;100m " << inp_vec.row(i) << " \033[0m Out :\033[1;40m "
+        std::cout << "Prediction :\n\033[1;100m " << inp_vec.row(i) << " \033[0m\nOut :\n\033[1;40m "
                   << *res << " \033[0m\n";
     }
     return results;
+}
+
+void NNSequentialModel::test(const Eigen::MatrixXf &input, const Eigen::MatrixXf &output) {
+    double total_loss = 0.0;
+
+    for (uint32_t inp_index = 0; inp_index < input.rows(); inp_index++) {
+        // Log: Training step
+
+        shared_ptr<Eigen::VectorXf> res = forward(input.row(inp_index));
+//        for (uint32_t i = 0; i < res->rows())
+//        cout << *res << "\n" << output.row(inp_index).transpose() << "\n\n";
+        total_loss += (*res - output.row(inp_index)).squaredNorm();
+    }
+    cout << "Average Test Loss MSE :\033[1;40m " << total_loss / output.size() << " \033[0m\n";
 }
 
 void NNSequentialModel::train(const Eigen::MatrixXf &input,
@@ -68,7 +82,7 @@ void NNSequentialModel::train(const Eigen::MatrixXf &input,
 
             shared_ptr<Eigen::Matrix<float, -1, 1>> res = forward(input.row(inp_index));
             total_loss += (*res - labels.row(inp_index)).squaredNorm();
-            back(labels.row(inp_index), res);
+            back(labels.row(inp_index).transpose(), res);
         }
 
         cout << "Average loss MSE :\033[1;40m " << total_loss / labels.size() << " \033[0m\n";
@@ -140,6 +154,6 @@ void NNSequentialModel::allocate_layers() {
     cout << "✅\n" << "Layer Weights : \n";
     for (auto &layer: layers) {
         cout << "\t" << layer->weights.rows() << " x " << layer->weights.cols() << "\n";
-        cout << layer->weights << "\n";
+        logger << layer->weights << "\n";
     }
 }

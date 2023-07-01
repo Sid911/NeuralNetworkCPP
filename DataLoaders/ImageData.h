@@ -39,8 +39,8 @@ struct ImageClassifierData {
     vector<string> testLabelNames;
     vector<shared_ptr<cv::Mat>> trainingImages;
     vector<shared_ptr<cv::Mat>> testImages;
-    shared_ptr<vector<Eigen::MatrixXf>> trainingData;
-    shared_ptr<vector<Eigen::MatrixXf>> testData;
+    shared_ptr<Eigen::MatrixXf> trainingData;
+    shared_ptr<Eigen::MatrixXf> testData;
 };
 
 /**
@@ -63,15 +63,24 @@ void processDirectory(const filesystem::path& dirPath,
                       vector<shared_ptr<cv::Mat>>& images,
                       vector<uint32_t> &labels,
                       vector<string>& discoveredLabels,
+                      size_t maxData,
                       int cv_flags = cv::IMREAD_GRAYSCALE | cv::IMREAD_UNCHANGED
-                      ) {
+) {
+    size_t totalData = 0;
+
     for (const auto& file : filesystem::directory_iterator(dirPath)) {
+        if (totalData >= maxData) {
+            break;
+        }
+
         if (file.is_regular_file()) {
             auto image_ptr = make_shared<cv::Mat>(cv::imread(
                     file.path().string(),
                     cv_flags
             ));
+
             if (!image_ptr->empty()) {
+                totalData += 1;
                 images.push_back(image_ptr);
 
                 // get parent directory name
@@ -92,7 +101,7 @@ void processDirectory(const filesystem::path& dirPath,
                 }
             }
         } else if(file.is_directory()){
-            processDirectory(file.path(), images, labels, discoveredLabels);
+            processDirectory(file.path(), images, labels, discoveredLabels, maxData/10, cv_flags);
         }
     }
 }
@@ -117,7 +126,7 @@ ImageClassifierData load_image_data_dir(const string& directoryPath) {
     vector<uint32_t> trainingLabels;
     vector<string> discoveredLabels;
 
-    processDirectory(trainingDir, trainingImages, trainingLabels, discoveredLabels);
+    processDirectory(trainingDir, trainingImages, trainingLabels, discoveredLabels, 100);
     imageData.trainingImages = trainingImages;
     imageData.trainingLabels = trainingLabels;
     imageData.trainingLabelNames = discoveredLabels;
@@ -127,25 +136,45 @@ ImageClassifierData load_image_data_dir(const string& directoryPath) {
     vector<uint32_t > testLabels;
     discoveredLabels.clear();
 
-    processDirectory(testingDir, testImages, testLabels, discoveredLabels);
+    processDirectory(testingDir, testImages, testLabels, discoveredLabels, 100);
     imageData.testImages = testImages;
     imageData.testLabels = testLabels;
     imageData.testLabelNames = discoveredLabels;
 
     // Convert training data to Eigen::MatrixXf
-    shared_ptr<vector<Eigen::MatrixXf>> trainingData = make_shared<vector<Eigen::MatrixXf>>();
-    trainingData->reserve(trainingImages.size());
+    auto const image_rows = trainingImages.at(0)->rows;
+    auto const image_cols = trainingImages.at(0)->cols;
+    auto const area = image_rows * image_cols;
+
+    shared_ptr<Eigen::MatrixXf> trainingData = make_shared<Eigen::MatrixXf>(trainingImages.size(), area);
+    auto index = 0;
     for (auto& image : trainingImages) {
-        Eigen::MatrixXf matrix = Eigen::Map<Eigen::MatrixXf>(image->ptr<float>(), image->rows, image->cols);
-        trainingData->push_back(matrix);
+        // Map uchar data to ArrayXd
+        Eigen::Map<Eigen::Array<unsigned char, Eigen::Dynamic, 1>> array(image->data, area);
+
+        // Cast ArrayXd to VectorXf
+        Eigen::VectorXf vector = array.cast<float>();
+
+        // Assign the casted vector to a row in trainingData
+        trainingData->row(index) = vector;
+
+        index++;
     }
 
     // Convert test data to Eigen::MatrixXf
-    shared_ptr<vector<Eigen::MatrixXf>> testData = make_shared<vector<Eigen::MatrixXf>>();
-    testData->reserve(testImages.size());
+    shared_ptr<Eigen::MatrixXf> testData = make_shared<Eigen::MatrixXf>(testImages.size(), area);
+    index = 0;
     for (auto& image : testImages) {
-        Eigen::MatrixXf matrix = Eigen::Map<Eigen::MatrixXf>(image->ptr<float>(), image->rows, image->cols);
-        testData->push_back(matrix);
+        // Map uchar data to ArrayXd
+        Eigen::Map<Eigen::Array<unsigned char, Eigen::Dynamic, 1>> array(image->data, area);
+
+        // Cast ArrayXd to VectorXf
+        Eigen::VectorXf vector = array.cast<float>();
+
+        // Assign the cast vector to a row in testData
+        testData->row(index) = vector;
+
+        index++;
     }
 
     // Create and return the struct with shared pointers to vectors of Eigen::MatrixXf

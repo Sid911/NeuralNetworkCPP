@@ -12,7 +12,7 @@ namespace NN {
     class Logger {
     public:
         explicit Logger(bool debug, std::string prefix = "") : debug_enabled(debug),
-                                                               prefix(std::move(prefix) + " : \t") {}
+                                                               prefix(std::move(prefix)) {}
 
         // Handle << operator for all types of input
         template<typename T>
