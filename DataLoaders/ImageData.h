@@ -126,7 +126,7 @@ ImageClassifierData load_image_data_dir(const string& directoryPath) {
     vector<uint32_t> trainingLabels;
     vector<string> discoveredLabels;
 
-    processDirectory(trainingDir, trainingImages, trainingLabels, discoveredLabels, 100);
+    processDirectory(trainingDir, trainingImages, trainingLabels, discoveredLabels, 1000);
     imageData.trainingImages = trainingImages;
     imageData.trainingLabels = trainingLabels;
     imageData.trainingLabelNames = discoveredLabels;
@@ -156,7 +156,7 @@ ImageClassifierData load_image_data_dir(const string& directoryPath) {
         Eigen::VectorXf vector = array.cast<float>();
 
         // Assign the casted vector to a row in trainingData
-        trainingData->row(index) = vector;
+        trainingData->row(index) = vector / 256;
 
         index++;
     }
@@ -172,7 +172,7 @@ ImageClassifierData load_image_data_dir(const string& directoryPath) {
         Eigen::VectorXf vector = array.cast<float>();
 
         // Assign the cast vector to a row in testData
-        testData->row(index) = vector;
+        testData->row(index) = vector/ 256;
 
         index++;
     }

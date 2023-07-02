@@ -31,7 +31,7 @@ int main(){
     for(auto i =0; i < data.trainingLabels.size(); i++){
         uint32_t label = stoul(data.trainingLabelNames.at(data.trainingLabels.at(i)));
         if (label > 9 ) return -1;
-        labels(i,label) = 1.0f;
+        labels(i,label ) = 1.0f;
 //        logger << data.trainingData->row(i) << "\n" << label << "\n\n";
     }
 
@@ -41,8 +41,9 @@ int main(){
     for(auto i =0; i < data.testLabels.size(); i++){
         uint32_t label = stoul(data.testLabelNames.at(data.testLabels.at(i)));
         if (label > 9 ) return -1;
-        labels(i,label) = 1.0f;
+        labels(i, label ) = 1.0f;
     }
 //    model.predict(*data.testData);
-    model.test(*data.testData, labels);
+    logger << data.testLabelNames;
+    model.test_classification(*data.testData, labels, data.trainingLabelNames);
 }

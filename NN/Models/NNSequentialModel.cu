@@ -38,8 +38,8 @@ NNSequentialModel::NNSequentialModel(vector<shared_ptr<NNLayer>> _l) : layers(st
         auto res = forward(inp_vec.row(i));
         results->row(i) = *res;
 
-        std::cout << "Prediction :\n\033[1;100m " << inp_vec.row(i) << " \033[0m\nOut :\n\033[1;40m "
-                  << *res << " \033[0m\n";
+        std::cout << "Prediction :\n\033[1;100m " << inp_vec.row(i) << " \033[0m\nOut " << i
+        <<" :\n\033[1;40m " << *res << " \033[0m\n";
     }
     return results;
 }
@@ -56,6 +56,28 @@ void NNSequentialModel::test(const Eigen::MatrixXf &input, const Eigen::MatrixXf
         total_loss += (*res - output.row(inp_index)).squaredNorm();
     }
     cout << "Average Test Loss MSE :\033[1;40m " << total_loss / output.size() << " \033[0m\n";
+}
+
+void NNSequentialModel::test_classification(const Eigen::MatrixXf &input,
+                                            const Eigen::MatrixXf &labels,
+                                            const vector<string> &labelNames) {
+    uint32_t correct = 0;
+
+    for (uint32_t inp_index = 0; inp_index < input.rows(); inp_index++) {
+        // Log: Training step
+        Eigen::VectorXf label = labels.row(inp_index);
+        shared_ptr<Eigen::VectorXf> res = forward(input.row(inp_index));
+        Eigen::Index maxIndex, maxLabelIndex;
+        res->maxCoeff(&maxIndex);
+        label.maxCoeff(&maxLabelIndex);
+        if (maxLabelIndex != maxIndex){
+            cout << label.transpose() << "\n";
+            cout << inp_index << ") " << maxIndex << " : " << maxLabelIndex <<"\n\n";
+            continue;
+        }
+        correct++;
+    }
+    cout << "Total Accuracy :\033[1;40m " << (double )correct / (double )input.rows() << " \033[0m\n";
 }
 
 void NNSequentialModel::train(const Eigen::MatrixXf &input,

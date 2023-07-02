@@ -45,7 +45,7 @@ shared_ptr<Eigen::VectorXf> NNDenseLayer::back_propagate(
     logger << "Delta : " << *delta << "\n";
 
     // find derivative of previous layer's activation results?
-    Eigen::VectorXf derivative = activations->unaryExpr(tanh_derivative);
+    Eigen::VectorXf derivative = activations->unaryExpr(sigmoid_derivative);
     auto next_target = make_shared<Eigen::VectorXf>(z.cwiseProduct(derivative));
     return next_target;
 }
@@ -55,7 +55,7 @@ shared_ptr<Eigen::VectorXf> NNDenseLayer::propagate(const shared_ptr<Eigen::Vect
     Eigen::VectorXf z = (weights * (*pre_act)) + biases;
 
     // Apply the activation function to compute the output a
-    std::function<float(float)> activation = [](float x) { return tanh(x); };
+    std::function<float(float)> activation = [](float x) { return sigmoid_fn(x); };
     Eigen::VectorXf a = z.unaryExpr(activation);
     // save previous activation in current layer as we need it for updating
     // weights later on and finding derivative

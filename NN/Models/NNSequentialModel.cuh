@@ -28,6 +28,10 @@ public:
     void test(const Eigen::MatrixXf &input,
               const Eigen::MatrixXf &output);
 
+    void test_classification(const Eigen::MatrixXf &input,
+              const Eigen::MatrixXf &labels,
+              const vector<string> &labelNames);
+
     void train(const Eigen::MatrixXf &input,
                const Eigen::MatrixXf &labels,
                uint32_t steps);
