@@ -15,7 +15,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CUDA_STANDARD 17)
 
 set(CMAKE_CUDA_FLAGS "-O3 --expt-relaxed-constexpr  --diag-suppress 20011 --diag-suppress 20012 --diag-suppress 20014")
-
+set(CPU_BASELINE "SSE2")  # Set minimal required optimizations
+set(CPU_DISPATCH "SSE4_2;AVX")  # Set dispatched additional optimizations
 
 add_subdirectory(DataLoaders)
 add_executable(NNCPP

@@ -11,17 +11,19 @@
 using namespace Eigen;
 
 int main(){
-    NN::Logger logger(true);
+    NN::Logger logger(false);
+    const float lr = 0.2;
+
     auto data = load_image_data_dir("./data/mnist_png");
     std::cout << data.trainingData->size() << " "<< data.testData->size() << "\n";
 
-    mt19937 gen(time(nullptr));
+    mt19937 gen(0);
 
     vector<shared_ptr<NNLayer>> layers = {
             make_shared<NNInputLayer>(NNInputLayer(784, 784, gen, true)),
-            make_shared<NNDenseLayer>(NNDenseLayer(784, 128, gen, true)),
-            make_shared<NNDenseLayer>(NNDenseLayer(128, 128, gen, true)),
-            make_shared<NNDenseLayer>(NNDenseLayer(128, 10, gen, true)),
+            make_shared<NNDenseLayer>(NNDenseLayer(784, 128, gen, true,lr)),
+            make_shared<NNDenseLayer>(NNDenseLayer(128, 128, gen, true, lr)),
+            make_shared<NNDenseLayer>(NNDenseLayer(128, 10, gen, true, lr)),
     };
     NNSequentialModel model = NNSequentialModel(layers);
 

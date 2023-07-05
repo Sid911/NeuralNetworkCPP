@@ -92,22 +92,22 @@ void NNSequentialModel::train(const Eigen::MatrixXf &input,
          << "--------------------------------------------------------\n";
 
     for (uint32_t step = 0; step < steps; ++step) {
-        cout << "\033[1;90mTraining Step: " << (step + 1) << "/" << steps << "\033[0m\n";
+        logger << "\033[1;90mTraining Step: " << (step + 1) << "/" << steps << "\033[0m\n";
 
         double total_loss = 0.0;
 
         for (uint32_t inp_index = 0; inp_index < input.rows(); inp_index++) {
             // Log: Training step
 
-            logger << "Input :" << input.row(inp_index) << "\t Expected out : " << labels.row(inp_index);
-            logger << "\n";
+//            logger << "Input :" << input.row(inp_index) << "\t Expected out : " << labels.row(inp_index);
+//            logger << "\n";
 
             shared_ptr<Eigen::Matrix<float, -1, 1>> res = forward(input.row(inp_index));
             total_loss += (*res - labels.row(inp_index)).squaredNorm();
             back(labels.row(inp_index).transpose(), res);
         }
 
-        cout << "Average loss MSE :\033[1;40m " << total_loss / labels.size() << " \033[0m\n";
+        logger << "Average loss MSE :\033[1;40m " << total_loss / labels.size() << " \033[0m\n";
     }
 }
 
@@ -176,6 +176,6 @@ void NNSequentialModel::allocate_layers() {
     cout << "✅\n" << "Layer Weights : \n";
     for (auto &layer: layers) {
         cout << "\t" << layer->weights.rows() << " x " << layer->weights.cols() << "\n";
-        logger << layer->weights << "\n";
+//        logger << layer->weights << "\n";
     }
 }

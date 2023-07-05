@@ -63,26 +63,28 @@ public:
      *
      *
      */
-    NNLayer(uint32_t _size, mt19937 &_gen, bool _is_random = true) : input_size(_size), output_size(_size),
+    NNLayer(uint32_t _size, mt19937 &_gen, bool _is_random = true, float learning_rate = 0.2) : input_size(_size), output_size(_size),
                                                                      is_random(_is_random), gen(_gen),
-                                                                     logger(false){
+                                                                     logger(false), learning_rate(learning_rate){
         z_vec = make_shared<Eigen::VectorXf>();
         activations = make_shared<Eigen::VectorXf>();
     };
 
     NNLayer(uint32_t _input_size, uint32_t output_size,
-            mt19937 &_gen, bool _is_random) :
+            mt19937 &_gen, bool _is_random, float learning_rate = 0.2) :
             input_size(_input_size),
             output_size(output_size),
             is_random(_is_random),
-            gen(_gen), logger(false) {
+            gen(_gen), logger(false),
+            learning_rate(learning_rate){
         z_vec = make_shared<Eigen::VectorXf>();
         activations = make_shared<Eigen::VectorXf>();
     }
 
 
     NNLayer(uint32_t _input_size, uint32_t output_size,
-            mt19937 &_gen, bool _is_random, Eigen::MatrixXf& weights, Eigen::VectorXf &biases) :
+            mt19937 &_gen, bool _is_random, Eigen::MatrixXf& weights, Eigen::VectorXf &biases,
+            float learning_rate = 0.2) :
             input_size(_input_size),
             output_size(output_size),
             is_random(_is_random),
@@ -90,7 +92,7 @@ public:
             weights(weights),
             biases(biases),
             predefined_WnB(true),
-            logger(false){
+            logger(false),learning_rate(learning_rate){
         z_vec = make_shared<Eigen::VectorXf>();
         activations = make_shared<Eigen::VectorXf>();
     }

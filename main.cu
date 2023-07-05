@@ -16,11 +16,11 @@ void generate_gate(MatrixXf &input, MatrixXf &labels) noexcept;
 
 int main() {
     mt19937 gen(time(nullptr));
-
+    const float lr = 2;
     vector<shared_ptr<NNLayer>> layers = {
             make_shared<NNInputLayer>(NNInputLayer(2, 2, gen, true)),
-            make_shared<NNDenseLayer>(NNDenseLayer(2, 3, gen, true)),
-            make_shared<NNDenseLayer>(NNDenseLayer(3, 1, gen, true)),
+//            make_shared<NNDenseLayer>(NNDenseLayer(2, 3, gen, true)),
+            make_shared<NNDenseLayer>(NNDenseLayer(2, 1, gen, true, lr)),
     };
     NNSequentialModel model = NNSequentialModel(layers);
 
@@ -32,7 +32,7 @@ int main() {
 //    generate_linear(input, trainingLabels);
     generate_gate(input, labels);
 
-    model.train(input, labels, 5000);
+    model.train(input, labels, 500);
 
     auto val = model.predict(input);
 
@@ -67,7 +67,7 @@ void generate_gate(MatrixXf &input, MatrixXf &labels) noexcept {
     labels(0, 0) = 0;
     labels(1, 0) = 1;
     labels(2, 0) = 1;
-    labels(3, 0) = 0;
+    labels(3, 0) = 1;
 
 }
 

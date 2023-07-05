@@ -136,7 +136,7 @@ ImageClassifierData load_image_data_dir(const string& directoryPath) {
     vector<uint32_t > testLabels;
     discoveredLabels.clear();
 
-    processDirectory(testingDir, testImages, testLabels, discoveredLabels, 100);
+    processDirectory(testingDir, testImages, testLabels, discoveredLabels, 1000);
     imageData.testImages = testImages;
     imageData.testLabels = testLabels;
     imageData.testLabelNames = discoveredLabels;

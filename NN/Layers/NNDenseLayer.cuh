@@ -11,20 +11,20 @@
 
 //#define NNDebug
 using namespace std;
-
+#define l_rate 0.2
 
 class NNDenseLayer : public NNLayer {
 public:
-    explicit NNDenseLayer(uint32_t _size, mt19937 &_gen, bool _is_random = true) :
-            NNLayer(_size, _gen, _is_random) {};
+    explicit NNDenseLayer(uint32_t _size, mt19937 &_gen, bool _is_random = true, float learning_rate = l_rate) :
+            NNLayer(_size, _gen, _is_random, learning_rate) {};
 
-    NNDenseLayer(uint32_t _input_size, uint32_t output_size, mt19937 &_gen, bool _is_random) :
-            NNLayer(_input_size, output_size, _gen, _is_random) {};
+    NNDenseLayer(uint32_t _input_size, uint32_t output_size, mt19937 &_gen, bool _is_random, float learning_rate = l_rate) :
+            NNLayer(_input_size, output_size, _gen, _is_random, learning_rate) {};
 
 
     NNDenseLayer(uint32_t _input_size, uint32_t output_size, mt19937 &_gen, bool _is_random,
-                 Eigen::MatrixXf &weights, Eigen::VectorXf &biases) :
-            NNLayer(_input_size, output_size, _gen, _is_random, weights, biases) {};
+                 Eigen::MatrixXf &weights, Eigen::VectorXf &biases, float learning_rate = l_rate) :
+            NNLayer(_input_size, output_size, _gen, _is_random, weights, biases, learning_rate) {};
 
     void allocate_layer(float = -1.0f, float = 1.0f) override;
 
